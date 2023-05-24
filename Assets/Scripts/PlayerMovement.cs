@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Movement")]
     public float playerSpeed = 1.9f;
 
+    [Header("Player Camera")]
+    public Transform playerCamera;
+
+
 
     [Header("Player Animator and Gravity")]
     public CharacterController cC;
@@ -29,10 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg *playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime );// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+
+            
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            cC.Move(direction.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
                                                                          //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
         }
 

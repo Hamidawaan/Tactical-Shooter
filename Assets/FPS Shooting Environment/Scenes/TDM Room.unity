@@ -3670,7 +3670,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 1.9
+  playerCamera: {fileID: 139703016}
   cC: {fileID: 2054568624}
+  turnCalmTime: 0.1
 --- !u!1 &2063188366
 GameObject:
   m_ObjectHideFlags: 0

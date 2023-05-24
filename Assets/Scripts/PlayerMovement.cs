@@ -104,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
     void Jump()
     {
         if(Input.GetButtonDown("Jump") && onSurface)

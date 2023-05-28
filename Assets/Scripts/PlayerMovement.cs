@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Animator and Gravity")]
     public CharacterController cC;
     public float gravity = -9.81f;
+    public Animator animator;
 
     [Header("Player jumping and velocity")]
     public float jumpRange = 1f;
@@ -53,6 +54,18 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMove()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
     {
+
+
+
+        animator.SetBool("Walk", true);
+        animator.SetBool("Running", false);
+        animator.SetTrigger("Jump");
+        animator.SetBool("Idle", false);
+        animator.SetBool("AimWalk", false);
+        animator.SetBool("IdleAim", false);
+        
+
+
         float horizontal_axis = Input.GetAxisRaw("Horizontal");
         float Vertical_axis = Input.GetAxisRaw("Vertical");
 
@@ -69,7 +82,17 @@ public class PlayerMovement : MonoBehaviour
             cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
             currentPlayerSpeed = playerSpeed;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
         }
-
+        else
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("Walk", false);
+            animator.SetBool("Running", false);
+            animator.SetTrigger("Jump");
+           
+            animator.SetBool("AimWalk", false);
+            currentPlayerSpeed = 0f;
+           
+        }
 
 
     }
@@ -78,8 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("Sprint") && Input.GetKey(KeyCode.W)  && onSurface)
         {
-
-
+            
 
             float horizontal_axis = Input.GetAxisRaw("Horizontal");
             float Vertical_axis = Input.GetAxisRaw("Vertical");
@@ -88,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
             {
+                animator.SetBool("Running", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", false);
+
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
 
@@ -98,6 +125,12 @@ public class PlayerMovement : MonoBehaviour
                 currentplayerSprint = playerSprint;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
 
             }
+            else
+            {
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                currentplayerSprint = 0f;
+            }
 
         }
 
@@ -106,10 +139,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump") && onSurface)
-        velocity.y = Mathf.Sqrt(jumpRange * -2 * gravity);
+        if (Input.GetButtonDown("Jump") && onSurface)
+        {
+            animator.SetBool("Walk", false);
 
+            animator.SetTrigger("Jump");
+            velocity.y = Mathf.Sqrt(jumpRange * -2 * gravity);
 
-
+        }
+        else
+        {
+            animator.ResetTrigger("Jump");
+        }
     }
+    
 }

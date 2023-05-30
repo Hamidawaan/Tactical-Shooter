@@ -19,9 +19,15 @@ public class Rifle : MonoBehaviour
     void shoot()
     {
         RaycastHit hitInfo;
-        if(Physics.Raycast(cam.transform.position , cam.transform.forward, out hitInfo, shootingRange))
+        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
         {
             Debug.Log(hitInfo.transform.name);
+
+            Objects objects = hitInfo.transform.GetComponent<Objects>();
+            if(objects != null)
+            {
+                objects.objectHitDamage(giveDamage);
+            }
         }
     }
 

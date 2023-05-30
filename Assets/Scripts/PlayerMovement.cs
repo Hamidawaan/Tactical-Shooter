@@ -31,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask surfaceMask;
 
 
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     private void Update()
     {

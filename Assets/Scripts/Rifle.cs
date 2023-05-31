@@ -20,7 +20,10 @@ public class Rifle : MonoBehaviour
     public float reloadingTime = 1.3f;
     public bool setReloading = false;
 
+    [Header("Rifle Effect")]
 
+    public ParticleSystem mazzleSpark;
+    public GameObject woodedEffect;
 
     private void Awake()
     {
@@ -86,7 +89,7 @@ public class Rifle : MonoBehaviour
             mag--;
         }
 
-
+        mazzleSpark.Play();
         RaycastHit hitInfo;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
         {
@@ -96,6 +99,8 @@ public class Rifle : MonoBehaviour
             if(objects != null)
             {
                 objects.objectHitDamage(giveDamage);
+                GameObject woodGo = Instantiate(woodedEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(woodGo, 1f);
             }
         }
     }

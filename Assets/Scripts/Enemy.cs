@@ -6,13 +6,21 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Health and Damage")]
+    public float enemyHealth = 120f;
+    public float presentHealth;
+    public float giveDamage = 5f;
     public float enemySpeed;
 
     [Header("Enemy Things")]
+    public Transform lookPoint;
+    public GameObject shootingRaycastArea;
     public NavMeshAgent enemyAgent;
     public Transform playerBody;
     public LayerMask playerLayer;
 
+    [Header("Enemy shooting var")]
+    public float timebtwShoot;
+    bool previouslyShoot;
 
     [Header("Enemy state")]
     public float visionRadius;
@@ -25,6 +33,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
+        presentHealth = enemyHealth;
     }
 
     private void Update()
@@ -36,6 +45,10 @@ public class Enemy : MonoBehaviour
         {
             persuePlayer();
         }
+        if (playerinvisionRadius && playerinshootingRadius)
+        {
+            shootPlayer();
+        }
 
     }
 
@@ -45,6 +58,55 @@ public class Enemy : MonoBehaviour
         {
             // annimation
         }
+    }
+
+    private void shootPlayer()
+    {
+        enemyAgent.SetDestination(transform.position); // stop the enemy player(transform the position)
+        transform.LookAt(lookPoint); // the enemy change the face in the player side.
+
+        if (!previouslyShoot)
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
+            {
+                Debug.Log("shooting" + hit.transform.name);
+                PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
+
+                if(playerBody!= null)
+                {
+                    playerBody.playerHitDamage(giveDamage);
+                }
+            }
+        }
+
+
+        previouslyShoot = true;
+        Invoke(nameof(ActiveShooting), timebtwShoot);
+    }
+
+    private void ActiveShooting()
+    {
+        previouslyShoot = false;
+    }
+
+    public void enemyHitDamage(float takeDamage)
+    {
+        presentHealth = presentHealth - takeDamage;
+        if (presentHealth <= 0)
+        {
+            Respawn();
+        }
+    }
+
+    void Respawn()
+    {
+        enemyAgent.SetDestination(transform.position);
+        enemySpeed = 0f;
+        shootingRadius = 0f;
+        visionRadius = 0f;
+        playerinvisionRadius = false;
+        playerinshootingRadius = false;
     }
 
 }

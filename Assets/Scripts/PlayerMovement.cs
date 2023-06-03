@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Player Health Things")]
+    public float playerHealth = 1000f;
+    public float presentHealth;
+
+
+
+
     [Header("Player Movement")]
     public float playerSpeed = 1.9f;
     public float currentPlayerSpeed = 0f;
@@ -34,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        presentHealth = playerHealth;
     }
 
     private void Update()
@@ -154,6 +163,22 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.ResetTrigger("Jump");
         }
+    }
+
+
+    public void playerHitDamage(float takeDamage)
+    {
+        presentHealth = presentHealth - takeDamage;
+        if (presentHealth <= 0)
+        {
+            playerDie();
+        }
+    }
+
+    private void playerDie()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Object.Destroy(gameObject);
     }
     
 }

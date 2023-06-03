@@ -24,6 +24,8 @@ public class Rifle : MonoBehaviour
 
     public ParticleSystem mazzleSpark;
     public GameObject woodedEffect;
+    public GameObject goreEffect;
+
 
     private void Awake()
     {
@@ -96,11 +98,19 @@ public class Rifle : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
 
             Objects objects = hitInfo.transform.GetComponent<Objects>();
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if(objects != null)
             {
                 objects.objectHitDamage(giveDamage);
                 GameObject woodGo = Instantiate(woodedEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 Destroy(woodGo, 1f);
+            }
+
+            else if(enemy!= null)
+            {
+                enemy.enemyHitDamage(giveDamage);
+                GameObject goreGo = Instantiate(goreEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(goreGo, 1f);
             }
         }
     }

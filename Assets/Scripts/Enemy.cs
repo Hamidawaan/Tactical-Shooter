@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent enemyAgent;
     public Transform playerBody;
     public LayerMask playerLayer;
+    public Transform spawn;
+    public Transform Enemycharacter;
 
     [Header("Enemy shooting var")]
     public float timebtwShoot;
@@ -95,11 +97,11 @@ public class Enemy : MonoBehaviour
         presentHealth = presentHealth - takeDamage;
         if (presentHealth <= 0)
         {
-            Respawn();
+            StartCoroutine(Respawn());
         }
     }
 
-    void Respawn()
+    IEnumerator Respawn()
     {
         enemyAgent.SetDestination(transform.position);
         enemySpeed = 0f;
@@ -107,6 +109,27 @@ public class Enemy : MonoBehaviour
         visionRadius = 0f;
         playerinvisionRadius = false;
         playerinshootingRadius = false;
+
+        // animations
+        Debug.Log("Dead");
+
+        yield return new WaitForSeconds(5f);
+
+        Debug.Log("Spawn");
+        presentHealth = 120f;
+        enemySpeed = 3f;
+        shootingRadius = 10f;
+        visionRadius = 100f;
+        playerinvisionRadius = true;
+        playerinshootingRadius = false;
+
+        // animations
+
+        // spawnpoint
+        Enemycharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
+        persuePlayer();
+
+
     }
 
 }

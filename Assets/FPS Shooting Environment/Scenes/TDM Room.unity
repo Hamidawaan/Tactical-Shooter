@@ -22236,7 +22236,8 @@ MonoBehaviour:
   setReloading: 0
   mazzleSpark: {fileID: 1618692444801328540}
   woodedEffect: {fileID: 100006, guid: 382c72524bd69044fae222eefa70563a, type: 3}
-  goreEffect: {fileID: 0}
+  goreEffect: {fileID: 3198374318725026878, guid: 7e7997277d214fe41816728361e70c9b,
+    type: 3}
 --- !u!114 &5638658832559829232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31500,6 +31501,7 @@ GameObject:
   - component: {fileID: 9106337388269778786}
   - component: {fileID: 9167052020610035463}
   - component: {fileID: 9167052020610035464}
+  - component: {fileID: 9167052020610035465}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -31558,6 +31560,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &9167052020610035465
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167052020610035462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1 &9167072595767988634
 GameObject:
   m_ObjectHideFlags: 0

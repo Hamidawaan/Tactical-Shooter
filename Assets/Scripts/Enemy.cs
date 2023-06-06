@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     public float timebtwShoot;
     bool previouslyShoot;
 
+    [Header("Enmey Annimation ad spark effect")]
+    public Animator animator;
+
     [Header("Enemy state")]
     public float visionRadius;
     public float shootingRadius;
@@ -59,6 +62,14 @@ public class Enemy : MonoBehaviour
         if (enemyAgent.SetDestination(playerBody.position))
         {
             // annimation
+            animator.SetBool("Running", true);
+            animator.SetBool("Shooting", false);
+
+        }
+        else
+        {
+            animator.SetBool("Running", false);
+            animator.SetBool("Shooting", false);
         }
     }
 
@@ -80,6 +91,9 @@ public class Enemy : MonoBehaviour
                     playerBody.playerHitDamage(giveDamage);
                 }
             }
+
+            animator.SetBool("Running", false);
+            animator.SetBool("Shooting", true);
         }
 
 
@@ -109,7 +123,9 @@ public class Enemy : MonoBehaviour
         visionRadius = 0f;
         playerinvisionRadius = false;
         playerinshootingRadius = false;
-
+        animator.SetBool("Die", true);
+        animator.SetBool("Running", false);
+        animator.SetBool("Shooting", false);
         // animations
         Debug.Log("Dead");
 
@@ -124,11 +140,12 @@ public class Enemy : MonoBehaviour
         playerinshootingRadius = false;
 
         // animations
-
+        animator.SetBool("Running", true);
+        animator.SetBool("Die", false);
         // spawnpoint
         Enemycharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
         persuePlayer();
-
+        
 
     }
 

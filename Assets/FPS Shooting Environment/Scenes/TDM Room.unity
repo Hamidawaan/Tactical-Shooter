@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139703011}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 1.1052731, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 1.0226338, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20680,7 +20680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4050248439900812282}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 1.1052731, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 1.0226338, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31096,7 +31096,7 @@ Animator:
   m_GameObject: {fileID: 9167052020610035462}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9bda5fe00f13b104b866a57e1b4fbe86, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac10c526c5586ed4baeb5c3b9717c939, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -33219,8 +33219,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9161206985082851324}
-  - component: {fileID: 9106337388269778786}
   - component: {fileID: 9167052020610035463}
+  - component: {fileID: 9106337388269778786}
   - component: {fileID: 9167052020610035464}
   - component: {fileID: 9167052020610035465}
   m_Layer: 0
@@ -33245,7 +33245,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 3
+  enemySpeed: 1.5
   lookPoint: {fileID: 385591281}
   shootingRaycastArea: {fileID: 461100223}
   enemyAgent: {fileID: 9167052020610035464}
@@ -33256,6 +33256,7 @@ MonoBehaviour:
   spawn: {fileID: 1756163585}
   Enemycharacter: {fileID: 9161206985082851324}
   timebtwShoot: 3
+  animator: {fileID: 9106337388269778786}
   visionRadius: 100
   shootingRadius: 10
   playerinvisionRadius: 0

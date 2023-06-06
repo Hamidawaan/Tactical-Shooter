@@ -19,6 +19,6 @@ public class Objects : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+       // Destroy(gameObject);
     }
 }

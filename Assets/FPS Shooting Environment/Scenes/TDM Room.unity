@@ -11309,7 +11309,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621570768808183161}
-  - component: {fileID: 712175883617893767}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -12815,27 +12814,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1263572775955411027, guid: ed14286a82a62c94dad5d052abcd6b21, type: 3}
---- !u!95 &712175883617893767
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627752993604493471}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: faa481384cbd0ce4bb77fa0ac02a9646, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &734009648933499197
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23733,27 +23711,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &3043436972292539831
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127990389346290683}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3b7f6c368c20a444ca1eaa065c00dc28, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &3045119275943034088
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -24885,7 +24842,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3133959878261864999}
-  - component: {fileID: 3043436972292539831}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged

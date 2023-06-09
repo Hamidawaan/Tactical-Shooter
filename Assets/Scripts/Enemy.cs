@@ -84,12 +84,27 @@ public class Enemy : MonoBehaviour
             if(Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
             {
                 Debug.Log("shooting" + hit.transform.name);
-                PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
 
-                if(playerBody!= null)
+                if (isplayer==true) // the enemy check if it is player then shoot the player 
                 {
-                    playerBody.playerHitDamage(giveDamage);
+                    PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
+                    if (playerBody != null)
+                    {
+                        playerBody.playerHitDamage(giveDamage);
+                    }
                 }
+
+                else   // else shoot the playerAi
+                {
+                    PlayerAI playerBody = hit.transform.GetComponent<PlayerAI>(); 
+                    if (playerBody != null)
+                    {
+                        playerBody.PlayerAiHitDamage(giveDamage);
+                    }
+                }
+               
+
+               
             }
 
             animator.SetBool("Running", false);

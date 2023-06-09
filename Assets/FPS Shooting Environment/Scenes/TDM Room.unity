@@ -2182,7 +2182,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574732642}
+  - component: {fileID: 1574732645}
   - component: {fileID: 1574732641}
+  - component: {fileID: 1574732644}
+  - component: {fileID: 1574732643}
   m_Layer: 0
   m_Name: PlayerAI
   m_TagString: Untagged
@@ -2200,7 +2203,7 @@ Animator:
   m_GameObject: {fileID: 1574732640}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b4efb30ec2fc46e4b99a156356acaf49, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bb848719b9ec4d40a15fde17b890955, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2227,6 +2230,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1574732643
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574732640}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!195 &1574732644
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574732640}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1574732645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574732640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHealth: 120
+  presentHealth: 0
+  giveDamage: 5
+  PlayerSpeed: 0
+  lookPoint: {fileID: 0}
+  shootingRaycastArea: {fileID: 0}
+  PlayerAgent: {fileID: 1574732644}
+  playerBody: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawn: {fileID: 0}
+  Playercharacter: {fileID: 0}
+  timebtwShoot: 4
+  animator: {fileID: 1574732641}
+  visionRadius: 0
+  shootingRadius: 0
+  enemyinvisionRadius: 0
+  enemyinshootingRadius: 0
 --- !u!1 &1615112392
 GameObject:
   m_ObjectHideFlags: 0

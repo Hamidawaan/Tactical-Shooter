@@ -1,64 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerAI : MonoBehaviour
 {
-    [Header("Enemy Health and Damage")]
-    public float enemyHealth = 120f;
+    [Header("Player Health and Damage")]
+    public float PlayerHealth = 120f;
     public float presentHealth;
     public float giveDamage = 5f;
-    public float enemySpeed;
+    public float PlayerSpeed;
 
-    [Header("Enemy Things")]
+    [Header("Player Things")]
     public Transform lookPoint;
     public GameObject shootingRaycastArea;
-    public NavMeshAgent enemyAgent;
+    public NavMeshAgent PlayerAgent;
     public Transform playerBody;
     public LayerMask playerLayer;
     public Transform spawn;
-    public Transform Enemycharacter;
+    public Transform Playercharacter;
 
-    [Header("Enemy shooting var")]
+    [Header("Player shooting var")]
     public float timebtwShoot;
     bool previouslyShoot;
 
     [Header("Enmey Annimation ad spark effect")]
     public Animator animator;
 
-    [Header("Enemy state")]
+    [Header("Player state")]
     public float visionRadius;
     public float shootingRadius;
-    public bool playerinvisionRadius;
-    public bool playerinshootingRadius;
-    public bool isplayer = false;
+    public bool enemyinvisionRadius;
+    public bool enemyinshootingRadius;
+
 
 
     private void Awake()
     {
-        enemyAgent = GetComponent<NavMeshAgent>();
-        presentHealth = enemyHealth;
+        PlayerAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        presentHealth = PlayerHealth;
     }
 
     private void Update()
     {
-        playerinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, playerLayer);
-        playerinshootingRadius = Physics.CheckSphere(transform.position, shootingRadius, playerLayer);
+        enemyinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, playerLayer);
+        enemyinshootingRadius = Physics.CheckSphere(transform.position, shootingRadius, playerLayer);
 
-        if (playerinvisionRadius && !playerinshootingRadius)
+        if (enemyinvisionRadius && !enemyinshootingRadius)
         {
-            persuePlayer();
+            persueEnemy();
         }
-        if (playerinvisionRadius && playerinshootingRadius)
+        if (enemyinvisionRadius && enemyinshootingRadius)
         {
-            shootPlayer();
+            shootEnemy();
         }
 
     }
 
-    void persuePlayer()
+    void persueEnemy()
     {
-        if (enemyAgent.SetDestination(playerBody.position))
+        if (PlayerAgent.SetDestination(playerBody.position))
         {
             // annimation
             animator.SetBool("Running", true);
@@ -72,10 +74,10 @@ public class PlayerAI : MonoBehaviour
         }
     }
 
-    private void shootPlayer()
+     private void  shootEnemy()
     {
-        enemyAgent.SetDestination(transform.position); // stop the enemy player(transform the position)
-        transform.LookAt(lookPoint); // the enemy change the face in the player side.
+        PlayerAgent.SetDestination(transform.position); // stop the Player player(transform the position)
+        transform.LookAt(lookPoint); // the Player change the face in the player side.
 
         if (!previouslyShoot)
         {
@@ -83,13 +85,15 @@ public class PlayerAI : MonoBehaviour
             if (Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
             {
                 Debug.Log("shooting" + hit.transform.name);
-                PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
-
-                if (playerBody != null)
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                if (enemy != null)
                 {
-                    playerBody.playerHitDamage(giveDamage);
+                    enemy.enemyHitDamage(giveDamage);
+
                 }
             }
+
+            
 
             animator.SetBool("Running", false);
             animator.SetBool("Shooting", true);
@@ -105,7 +109,7 @@ public class PlayerAI : MonoBehaviour
         previouslyShoot = false;
     }
 
-    public void enemyHitDamage(float takeDamage)
+    public void PlayerAiHitDamage(float takeDamage)
     {
         presentHealth = presentHealth - takeDamage;
         if (presentHealth <= 0)
@@ -116,12 +120,12 @@ public class PlayerAI : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        enemyAgent.SetDestination(transform.position);
-        enemySpeed = 0f;
+        PlayerAgent.SetDestination(transform.position);
+        PlayerSpeed = 0f;
         shootingRadius = 0f;
         visionRadius = 0f;
-        playerinvisionRadius = false;
-        playerinshootingRadius = false;
+        enemyinvisionRadius = false;
+        enemyinshootingRadius = false;
         animator.SetBool("Die", true);
         animator.SetBool("Running", false);
         animator.SetBool("Shooting", false);
@@ -132,18 +136,18 @@ public class PlayerAI : MonoBehaviour
 
         Debug.Log("Spawn");
         presentHealth = 120f;
-        enemySpeed = 3f;
+        PlayerSpeed = 3f;
         shootingRadius = 10f;
         visionRadius = 100f;
-        playerinvisionRadius = true;
-        playerinshootingRadius = false;
+        enemyinvisionRadius = true;
+        enemyinshootingRadius = false;
 
         // animations
         animator.SetBool("Running", true);
         animator.SetBool("Die", false);
         // spawnpoint
-        Enemycharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
-        persuePlayer();
+        Playercharacter.transform.position = spawn.transform.position; // assign the spawn points to  the Player
+        persueEnemy();
 
 
     }

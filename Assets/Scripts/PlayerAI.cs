@@ -27,6 +27,7 @@ public class PlayerAI : MonoBehaviour
 
     [Header("Enmey Annimation ad spark effect")]
     public Animator animator;
+    public ParticleSystem mazleSpark;
 
     [Header("Player state")]
     public float visionRadius;
@@ -81,6 +82,8 @@ public class PlayerAI : MonoBehaviour
 
         if (!previouslyShoot)
         {
+            mazleSpark.Play();
+
             RaycastHit hit;
             if (Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
             {

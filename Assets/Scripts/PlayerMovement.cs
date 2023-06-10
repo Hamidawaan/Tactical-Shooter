@@ -175,10 +175,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void playerDie()
+    public  void playerDie()
     {
         Cursor.lockState = CursorLockMode.None;
         Object.Destroy(gameObject);
+     
+
     }
     
 }

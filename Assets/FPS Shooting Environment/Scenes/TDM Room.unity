@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d44a6ebc2e48a4bbd92b408c089e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 84704840}
+  audiosource: {fileID: 420900122}
   footstepsSound:
   - {fileID: 8300000, guid: fd46da57d9c51fa4bbd8eee2d782b992, type: 3}
 --- !u!82 &420900122
@@ -1115,7 +1115,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.349
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1159,7 +1159,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d44a6ebc2e48a4bbd92b408c089e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 84704840}
+  audiosource: {fileID: 803437986}
   footstepsSound:
   - {fileID: 8300000, guid: fd46da57d9c51fa4bbd8eee2d782b992, type: 3}
 --- !u!82 &803437986
@@ -1873,7 +1873,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.349
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1917,7 +1917,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d44a6ebc2e48a4bbd92b408c089e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 84704840}
+  audiosource: {fileID: 1284106401}
   footstepsSound:
   - {fileID: 8300000, guid: fd46da57d9c51fa4bbd8eee2d782b992, type: 3}
 --- !u!82 &1284106401
@@ -2486,7 +2486,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.349
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2530,7 +2530,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3971,7 +3971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d44a6ebc2e48a4bbd92b408c089e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 84704840}
+  audiosource: {fileID: 1699323689}
   footstepsSound:
   - {fileID: 8300000, guid: fd46da57d9c51fa4bbd8eee2d782b992, type: 3}
 --- !u!82 &1699323689
@@ -3986,7 +3986,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.349
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4030,7 +4030,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

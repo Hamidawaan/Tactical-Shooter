@@ -27,6 +27,11 @@ public class Rifle : MonoBehaviour
     public GameObject goreEffect;
 
 
+    [Header("Sound Effect")]
+    public AudioSource audioSource;
+    public AudioClip shootingSound;
+    public AudioClip reloadingSound;
+
     private void Awake()
     {
         presentAmunation = maximumAmunation;
@@ -92,6 +97,7 @@ public class Rifle : MonoBehaviour
         }
 
         mazzleSpark.Play();
+        audioSource.PlayOneShot(shootingSound);
         RaycastHit hitInfo;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
         {
@@ -125,6 +131,7 @@ public class Rifle : MonoBehaviour
         Debug.Log("Reloading......");
         //Annmation and Audio
         animator.SetBool("Reloading", true);
+        audioSource.PlayOneShot(reloadingSound);
         yield return new WaitForSeconds(reloadingTime);
         //Annimation
         animator.SetBool("Reloading", false);

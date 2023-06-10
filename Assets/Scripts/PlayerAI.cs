@@ -16,8 +16,8 @@ public class PlayerAI : MonoBehaviour
     public Transform lookPoint;
     public GameObject shootingRaycastArea;
     public NavMeshAgent PlayerAgent;
-    public Transform playerBody;
-    public LayerMask playerLayer;
+    public Transform enemyBody;
+    public LayerMask enemyLayer;
     public Transform spawn;
     public Transform Playercharacter;
 
@@ -44,8 +44,8 @@ public class PlayerAI : MonoBehaviour
 
     private void Update()
     {
-        enemyinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, playerLayer);
-        enemyinshootingRadius = Physics.CheckSphere(transform.position, shootingRadius, playerLayer);
+        enemyinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, enemyLayer);
+        enemyinshootingRadius = Physics.CheckSphere(transform.position, shootingRadius, enemyLayer);
 
         if (enemyinvisionRadius && !enemyinshootingRadius)
         {
@@ -60,7 +60,7 @@ public class PlayerAI : MonoBehaviour
 
     void persueEnemy()
     {
-        if (PlayerAgent.SetDestination(playerBody.position))
+        if (PlayerAgent.SetDestination(enemyBody.position))
         {
             // annimation
             animator.SetBool("Running", true);

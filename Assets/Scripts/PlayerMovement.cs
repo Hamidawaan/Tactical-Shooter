@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Health Things")]
     public float playerHealth = 1000f;
     public float presentHealth;
+    public HealthBar healthBar;
 
 
 
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         presentHealth = playerHealth;
+        healthBar.GiveFullHealth(playerHealth);
     }
 
     private void Update()
@@ -168,19 +170,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void playerHitDamage(float takeDamage)
     {
-        presentHealth = presentHealth - takeDamage;
+        presentHealth  -= takeDamage;
+        healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
-            playerDie();
+            // playerDie();
+            PlayerDie();
         }
     }
 
-    public  void playerDie()
+    private void PlayerDie()
     {
         Cursor.lockState = CursorLockMode.None;
         Object.Destroy(gameObject);
-     
-
+        
     }
     
 }

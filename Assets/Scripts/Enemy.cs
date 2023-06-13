@@ -36,6 +36,10 @@ public class Enemy : MonoBehaviour
     public bool isplayer = false;
 
 
+    [Header("Shooting Effect")]
+    public AudioSource audioSource;
+    public AudioClip shootingSound;
+
     private void Awake()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
@@ -82,15 +86,16 @@ public class Enemy : MonoBehaviour
         if (!previouslyShoot)
         {
             mazleSpark.Play();
-
+            audioSource.PlayOneShot(shootingSound);
             RaycastHit hit;
             if(Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
             {
                 Debug.Log("shooting" + hit.transform.name);
 
-                if (isplayer==true) // the enemy check if it is player then shoot the player 
+                if (isplayer == true) // the enemy check if it is player then shoot the player 
                 {
-                    PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
+                   // PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
+                   PlayerMovement playerBody  = hit.transform.transform.GetComponent<PlayerMovement>();
                     if (playerBody != null)
                     {
                         playerBody.playerHitDamage(giveDamage);
@@ -105,18 +110,18 @@ public class Enemy : MonoBehaviour
                         playerBody.PlayerAiHitDamage(giveDamage);
                     }
                 }
-               
+                animator.SetBool("Running", false);
+                animator.SetBool("Shooting", true);
 
-               
+
             }
+            previouslyShoot = true;
+            Invoke(nameof(ActiveShooting), timebtwShoot);
 
-            animator.SetBool("Running", false);
-            animator.SetBool("Shooting", true);
         }
 
 
-        previouslyShoot = true;
-        Invoke(nameof(ActiveShooting), timebtwShoot);
+        
     }
 
     private void ActiveShooting()

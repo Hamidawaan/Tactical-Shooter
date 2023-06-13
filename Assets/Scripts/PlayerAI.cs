@@ -28,6 +28,8 @@ public class PlayerAI : MonoBehaviour
     [Header("Enmey Annimation ad spark effect")]
     public Animator animator;
     public ParticleSystem mazleSpark;
+   
+
 
     [Header("Player state")]
     public float visionRadius;
@@ -35,8 +37,9 @@ public class PlayerAI : MonoBehaviour
     public bool enemyinvisionRadius;
     public bool enemyinshootingRadius;
 
-
-
+    [Header("Shooting Effect")]
+    public AudioSource audioSource;
+    public AudioClip shootingSound;
     private void Awake()
     {
         PlayerAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -83,6 +86,7 @@ public class PlayerAI : MonoBehaviour
         if (!previouslyShoot)
         {
             mazleSpark.Play();
+            audioSource.PlayOneShot(shootingSound);
 
             RaycastHit hit;
             if (Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
@@ -94,17 +98,18 @@ public class PlayerAI : MonoBehaviour
                     enemy.enemyHitDamage(giveDamage);
 
                 }
+
+                animator.SetBool("Running", false);
+                animator.SetBool("Shooting", true);
             }
 
-            
+            previouslyShoot = true;
+            Invoke(nameof(ActiveShooting), timebtwShoot);
 
-            animator.SetBool("Running", false);
-            animator.SetBool("Shooting", true);
         }
 
 
-        previouslyShoot = true;
-        Invoke(nameof(ActiveShooting), timebtwShoot);
+        
     }
 
     private void ActiveShooting()

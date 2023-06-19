@@ -290,7 +290,7 @@ MonoBehaviour:
   PlayerHealth: 120
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 3
+  PlayerSpeed: 2.5
   lookPoint: {fileID: 1780569609}
   shootingRaycastArea: {fileID: 1134456914}
   PlayerAgent: {fileID: 84704836}
@@ -705,7 +705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139703011}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 0.9648189, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 0.8919689, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 6
-  enemySpeed: 1.5
+  enemySpeed: 2
   lookPoint: {fileID: 44404199}
   shootingRaycastArea: {fileID: 1308664850}
   enemyAgent: {fileID: 420900117}
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   animator: {fileID: 420900118}
   mazleSpark: {fileID: 1052955188271544571}
   visionRadius: 200
-  shootingRadius: 15
+  shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -1082,7 +1082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420900115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.830984, y: 4.044434, z: 6.2100906}
+  m_LocalPosition: {x: -11.46, y: 4.044434, z: 6.2100906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 1.5
+  enemySpeed: 2.5
   lookPoint: {fileID: 385591281}
   shootingRaycastArea: {fileID: 1225737157}
   enemyAgent: {fileID: 803437981}
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   animator: {fileID: 803437982}
   mazleSpark: {fileID: 6969646646091794291}
   visionRadius: 200
-  shootingRadius: 12
+  shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 7
   enemySpeed: 1.5
   lookPoint: {fileID: 639634954}
   shootingRaycastArea: {fileID: 461100223}
@@ -2457,7 +2457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284106394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.640984, y: 4.044434, z: 5.772087}
+  m_LocalPosition: {x: -1.57, y: 4.044434, z: 5.772087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   PlayerHealth: 120
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 3
+  PlayerSpeed: 4
   lookPoint: {fileID: 1534361766}
   shootingRaycastArea: {fileID: 1191235400}
   PlayerAgent: {fileID: 1522766589}
@@ -2932,7 +2932,7 @@ MonoBehaviour:
   animator: {fileID: 1522766590}
   mazleSpark: {fileID: 3472537851247106819}
   visionRadius: 100
-  shootingRadius: 15
+  shootingRadius: 10
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1522766594}
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   animator: {fileID: 1574732641}
   mazleSpark: {fileID: 7254932400565754705}
   visionRadius: 100
-  shootingRadius: 12
+  shootingRadius: 10
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1574732647}
@@ -3934,8 +3934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 7
-  enemySpeed: 1.5
+  giveDamage: 8
+  enemySpeed: 3
   lookPoint: {fileID: 2015268003}
   shootingRaycastArea: {fileID: 1225737157}
   enemyAgent: {fileID: 1699323684}
@@ -3949,7 +3949,7 @@ MonoBehaviour:
   animator: {fileID: 1699323685}
   mazleSpark: {fileID: 7470901858020314853}
   visionRadius: 200
-  shootingRadius: 13
+  shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -48606,7 +48606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3787256263010354493}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51684,7 +51684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4050248439900812282}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 0.9648189, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 0.8919689, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -4762,7 +4762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f33815f859dca4682c12e20d4a035f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 100
+  playerHealth: 1000
   presentHealth: 0
   healthBar: {fileID: 7237859701715136942}
   playerSpeed: 1.9
@@ -53127,8 +53127,8 @@ Transform:
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5128207319869956767}
   - {fileID: 7285878217691570159}
+  - {fileID: 5128207319869956767}
   m_Father: {fileID: 630262032466224325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83726,11 +83726,11 @@ Transform:
   - {fileID: 8452566430901047994}
   - {fileID: 8454149637139094438}
   - {fileID: 8452238415957073490}
-  - {fileID: 8452356404169128514}
+  - {fileID: 7064022158234818169}
   - {fileID: 8454301929208623676}
   - {fileID: 8454231195532418694}
   - {fileID: 8454120302004568960}
-  - {fileID: 7064022158234818169}
+  - {fileID: 8452356404169128514}
   m_Father: {fileID: 3125950958013414285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -10.519, y: -3.302, z: -2.948}

@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         presentHealth = playerHealth;
-        healthBar.GiveFullHealth(playerHealth);
+       // healthBar.GiveFullHealth(playerHealth);
     }
 
     private void Update()
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
            
         }
 
-
+           
     }
     void Sprint()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
     {
@@ -170,8 +170,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void playerHitDamage(float takeDamage)
     {
-        presentHealth  -= takeDamage;
-        healthBar.SetHealth(presentHealth);
+        presentHealth -= takeDamage;
+      //  healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
             // playerDie();
@@ -182,7 +182,10 @@ public class PlayerMovement : MonoBehaviour
     private void PlayerDie()
     {
         Cursor.lockState = CursorLockMode.None;
-        Object.Destroy(gameObject);
+    
+     Object.Destroy(gameObject);
+    // Destroy(gameObject);
+      
         
     }
     

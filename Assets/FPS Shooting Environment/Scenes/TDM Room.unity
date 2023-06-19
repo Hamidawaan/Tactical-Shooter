@@ -1068,7 +1068,7 @@ MonoBehaviour:
   animator: {fileID: 420900118}
   mazleSpark: {fileID: 1052955188271544571}
   visionRadius: 200
-  shootingRadius: 10
+  shootingRadius: 15
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   animator: {fileID: 803437982}
   mazleSpark: {fileID: 6969646646091794291}
   visionRadius: 200
-  shootingRadius: 10
+  shootingRadius: 12
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -2932,7 +2932,7 @@ MonoBehaviour:
   animator: {fileID: 1522766590}
   mazleSpark: {fileID: 3472537851247106819}
   visionRadius: 100
-  shootingRadius: 10
+  shootingRadius: 15
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1522766594}
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   animator: {fileID: 1574732641}
   mazleSpark: {fileID: 7254932400565754705}
   visionRadius: 100
-  shootingRadius: 10
+  shootingRadius: 12
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1574732647}
@@ -3949,7 +3949,7 @@ MonoBehaviour:
   animator: {fileID: 1699323685}
   mazleSpark: {fileID: 7470901858020314853}
   visionRadius: 200
-  shootingRadius: 10
+  shootingRadius: 13
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0

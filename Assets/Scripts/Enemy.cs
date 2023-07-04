@@ -48,7 +48,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        playerinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, playerLayer);
+        // Check if the player is within the visionRadius and shootingRadius
+        playerinvisionRadius = Physics.CheckSphere(transform.position, visionRadius, playerLayer); 
+
         playerinshootingRadius = Physics.CheckSphere(transform.position,shootingRadius, playerLayer);
 
         if(playerinvisionRadius && !playerinshootingRadius)
@@ -83,12 +85,15 @@ public class Enemy : MonoBehaviour
         enemyAgent.SetDestination(transform.position); // stop the enemy player(transform the position)
         transform.LookAt(lookPoint); // the enemy change the face in the player side.
 
-        if (!previouslyShoot)
+        if (!previouslyShoot) // if previously shoot is false
         {
             mazleSpark.Play();
             audioSource.PlayOneShot(shootingSound);
             RaycastHit hit;
             if(Physics.Raycast(shootingRaycastArea.transform.position, shootingRaycastArea.transform.forward, out hit, shootingRadius))
+                // Cast a raycast from the shootingRaycastArea forward within the shootingRadius and 
+               // If the raycast hits something:
+
             {
                 Debug.Log("shooting" + hit.transform.name);
 

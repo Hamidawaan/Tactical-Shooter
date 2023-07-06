@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rifle : MonoBehaviour
 {
+
     [Header("Rifle")]
     public Camera cam;
     public float giveDamage = 10f;
@@ -37,30 +38,35 @@ public class Rifle : MonoBehaviour
         presentAmunation = maximumAmunation;
     }
 
+
     private void Update()
     {
+        
+
+
+
 
         if (setReloading)// when we are not reloading
             return;
 
 
-        if(presentAmunation <= 0) // when ammo will 0 then reloading function will call.
+        if (presentAmunation <= 0) // when ammo will 0 then reloading function will call.
         {
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1")  && Time.time >= nextTimeToShoot)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
         {
             animator.SetBool("Fire", true);
             animator.SetBool("Idle", false);
-            nextTimeToShoot = Time.time + 1f/fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
+            nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
             shoot();
         }
         else if (Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            animator.SetBool("Idle", false);           
+            animator.SetBool("Idle", false);
             animator.SetBool("FireWalk", true);
-            
+
 
         }
         else if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
@@ -77,7 +83,7 @@ public class Rifle : MonoBehaviour
             animator.SetBool("Fire", false);
             animator.SetBool("Idle", true);
             animator.SetBool("FireWalk", false);
-            
+
         }
     }
     void shoot()
@@ -91,7 +97,7 @@ public class Rifle : MonoBehaviour
 
         presentAmunation--; // when player shoot the ammu will decrease
 
-        if(presentAmunation == 0) // when ammu will zero the 1 magazine will decrease(now the 14 mag will remain and then so on)
+        if (presentAmunation == 0) // when ammu will zero the 1 magazine will decrease(now the 14 mag will remain and then so on)
         {
             mag--;
         }
@@ -99,20 +105,20 @@ public class Rifle : MonoBehaviour
         mazzleSpark.Play();
         audioSource.PlayOneShot(shootingSound);
         RaycastHit hitInfo;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, shootingRange))
         {
             Debug.Log(hitInfo.transform.name);
 
             Objects objects = hitInfo.transform.GetComponent<Objects>();
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-            if(objects != null)
+            if (objects != null)
             {
                 objects.objectHitDamage(giveDamage);
                 GameObject woodGo = Instantiate(woodedEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 Destroy(woodGo, 1f);
             }
 
-            else if(enemy!= null)
+            else if (enemy != null)
             {
                 enemy.enemyHitDamage(giveDamage);
                 GameObject goreGo = Instantiate(goreEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
@@ -146,4 +152,8 @@ public class Rifle : MonoBehaviour
 
 
 
+
 }
+
+    
+

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
     public float currentPlayerSpeed = 0f;
     public float playerSprint = 3f;
     public float currentplayerSprint = 0f;
+    public Transform playerCharacter;
+    public Transform spawn;
+
+
+
 
     [Header("Player Camera")]
     public Transform playerCamera;
@@ -176,17 +182,45 @@ public class PlayerMovement : MonoBehaviour
         {
             // playerDie();
             PlayerDie();
+            StartCoroutine(Respawn());
         }
     }
 
     private void PlayerDie()
     {
         Cursor.lockState = CursorLockMode.None;
-    
-     Object.Destroy(gameObject);
-    // Destroy(gameObject);
-      
-        
+
+        Destroy(gameObject);
+        // Destroy(gameObject);
+       animator.SetBool("Die", true);
+
+
     }
-    
-}
+
+    IEnumerator Respawn()
+    {
+       //enemyAgent.SetDestination(transform.position);
+        playerSpeed= 0f;
+       // animator.SetBool("Die", true);
+        animator.SetBool("Running", false);
+        animator.SetBool("Shooting", false);
+        // animations
+        Debug.Log("Dead");
+
+        yield return new WaitForSeconds(5f);
+
+        Debug.Log("Spawn");
+        presentHealth = 120f;
+        playerSpeed = 1.9f;
+
+        // animations
+        animator.SetBool("Running", true);
+        animator.SetBool("Walk", true);
+        animator.SetBool("Jump", true);
+
+        animator.SetBool("Die", false);
+        // spawnpoint
+        playerCharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
+       // persuePlayer();
+    }
+    }

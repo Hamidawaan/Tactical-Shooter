@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Player Health Things")]
-    public float playerHealth = 1000f;
+    public float playerHealth = 200f;
     public float presentHealth;
     public HealthBar healthBar;
 
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // playerDie();
             PlayerDie();
-            StartCoroutine(Respawn());
+           
         }
     }
 
@@ -190,9 +190,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
 
-        Destroy(gameObject);
-        // Destroy(gameObject);
-       animator.SetBool("Die", true);
+      //  Other.Destroy(gameObject);
+         Destroy(gameObject);
+        StartCoroutine(Respawn());
 
 
     }
@@ -201,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
     {
        //enemyAgent.SetDestination(transform.position);
         playerSpeed= 0f;
-       // animator.SetBool("Die", true);
+        animator.SetBool("Die", true);
         animator.SetBool("Running", false);
         animator.SetBool("Shooting", false);
         // animations

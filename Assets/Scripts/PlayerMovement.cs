@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerHealth = 200f;
     public float presentHealth;
     public HealthBar healthBar;
+    //public NavMeshAgent PlayerAgent;
 
 
 
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         presentHealth = playerHealth;
-       // healthBar.GiveFullHealth(playerHealth);
+        // healthBar.GiveFullHealth(playerHealth);
     }
 
     private void Update()
@@ -59,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         //updates the velocity with gravity, and finally moves the character based on the updated velocity.
         onSurface = Physics.CheckSphere(surfaceCheck.position, surfaceDistance, surfaceMask);
 
-        if(onSurface && velocity.y < 0)
+        if (onSurface && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -83,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Idle", false);
         animator.SetBool("AimWalk", false);
         animator.SetBool("IdleAim", false);
-        
+
 
 
         float horizontal_axis = Input.GetAxisRaw("Horizontal");
@@ -94,9 +96,9 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime );// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
 
-            
+
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
@@ -108,20 +110,20 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Walk", false);
             animator.SetBool("Running", false);
             animator.SetTrigger("Jump");
-           
+
             animator.SetBool("AimWalk", false);
             currentPlayerSpeed = 0f;
-           
+
         }
 
-           
+
     }
     void Sprint()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
     {
 
-        if (Input.GetButton("Sprint") && Input.GetKey(KeyCode.W)  && onSurface)
+        if (Input.GetButton("Sprint") && Input.GetKey(KeyCode.W) && onSurface)
         {
-            
+
 
             float horizontal_axis = Input.GetAxisRaw("Horizontal");
             float Vertical_axis = Input.GetAxisRaw("Vertical");
@@ -177,50 +179,70 @@ public class PlayerMovement : MonoBehaviour
     public void playerHitDamage(float takeDamage)
     {
         presentHealth -= takeDamage;
-      //  healthBar.SetHealth(presentHealth);
+        //  healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
             // playerDie();
-            PlayerDie();
-           
+            //   PlayerDie();
+            StartCoroutine(Respawn());
+
         }
     }
 
-    private void PlayerDie()
-    {
-        Cursor.lockState = CursorLockMode.None;
+    // private void PlayerDie()
+    // {
+    //    Cursor.lockState = CursorLockMode.None;
 
-      //  Other.Destroy(gameObject);
-         Destroy(gameObject);
-        StartCoroutine(Respawn());
+    //  Other.Destroy(gameObject);
+    //       Destroy(gameObject);
+    //  StartCoroutine(Respawn());
 
 
-    }
+    //}
 
     IEnumerator Respawn()
     {
-       //enemyAgent.SetDestination(transform.position);
-        playerSpeed= 0f;
+        transform.position = spawn.position;
+        playerSpeed = 0f;
+
+
+
+
         animator.SetBool("Die", true);
         animator.SetBool("Running", false);
-        animator.SetBool("Shooting", false);
+        animator.SetBool("Fire", false);
+        animator.SetBool("Walk", false);
+        animator.SetBool("Reloading", false);
+        animator.SetBool("Idle", false);
+        animator.SetBool("IdleAim", false);
+        animator.SetBool("AimWalk", false);
+        animator.SetBool("FireWalk", false);
+        animator.SetBool("Reloading", false);
+       // animator.SetBool("Jump");
         // animations
         Debug.Log("Dead");
 
         yield return new WaitForSeconds(5f);
 
         Debug.Log("Spawn");
-        presentHealth = 120f;
-        playerSpeed = 1.9f;
+
+
 
         // animations
-        animator.SetBool("Running", true);
-        animator.SetBool("Walk", true);
-        animator.SetBool("Jump", true);
-
         animator.SetBool("Die", false);
+        animator.SetBool("Running", true);
+        animator.SetBool("Fire", true);
+        animator.SetBool("Walk", true);
+        animator.SetBool("Reloading", true);
+        animator.SetBool("Idle", true);
+        animator.SetBool("IdleAim", true);
+        animator.SetBool("AimWalk", true);
+        animator.SetBool("FireWalk", true);
+        animator.SetBool("Reloading", true);
         // spawnpoint
         playerCharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
        // persuePlayer();
+
+
     }
-    }
+}

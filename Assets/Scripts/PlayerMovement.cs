@@ -52,19 +52,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
         presentHealth = playerHealth;
         // healthBar.GiveFullHealth(playerHealth);
     }
 
     private void Update()
     {
-        if (isPlayerAlive)
-        {
-            playerMove();
-            Jump();
-            Sprint();
-        }
+        Cursor.lockState = CursorLockMode.Locked;
+        
 
 
 
@@ -225,12 +221,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Die", true);
         Cursor.lockState = CursorLockMode.Locked;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
 
         Debug.Log("Spawn");
         playerSpeed = 1.9f;
         animator.SetBool("Die", false);
-        animator.SetBool("Idle", false);
+      //  animator.SetBool("Idle", false);
 
         yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
 

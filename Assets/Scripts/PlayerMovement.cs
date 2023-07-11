@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float presentHealth;
     public HealthBar healthBar;
     //public NavMeshAgent PlayerAgent;
+    bool isPlayerAlive = true;
+    //public Transform Player;
 
 
 
@@ -57,6 +59,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isPlayerAlive)
+        {
+            playerMove();
+            Jump();
+            Sprint();
+        }
+
+
+
+
+
+
+
         //if the character is on a surface, applies a downward force to keep it grounded,
         //updates the velocity with gravity, and finally moves the character based on the updated velocity.
         onSurface = Physics.CheckSphere(surfaceCheck.position, surfaceDistance, surfaceMask);
@@ -183,66 +198,50 @@ public class PlayerMovement : MonoBehaviour
         if (presentHealth <= 0)
         {
             // playerDie();
-            //   PlayerDie();
+            PlayerDie();
+            
             StartCoroutine(Respawn());
 
         }
     }
 
-    // private void PlayerDie()
-    // {
-    //    Cursor.lockState = CursorLockMode.None;
+    private void PlayerDie()
+   {
+        // Cursor.lockState = CursorLockMode.None;
 
-    //  Other.Destroy(gameObject);
-    //       Destroy(gameObject);
-    //  StartCoroutine(Respawn());
+        //  Other.Destroy(gameObject);
+        //       Destroy(gameObject);
+        //  StartCoroutine(Respawn());
+        Debug.Log("Player Die");
+        
 
-
-    //}
-
-    IEnumerator Respawn()
-    {
-        transform.position = spawn.position;
-        playerSpeed = 0f;
-
-
-
-
-        animator.SetBool("Die", true);
-        animator.SetBool("Running", false);
-        animator.SetBool("Fire", false);
-        animator.SetBool("Walk", false);
-        animator.SetBool("Reloading", false);
-        animator.SetBool("Idle", false);
-        animator.SetBool("IdleAim", false);
-        animator.SetBool("AimWalk", false);
-        animator.SetBool("FireWalk", false);
-        animator.SetBool("Reloading", false);
-       // animator.SetBool("Jump");
-        // animations
-        Debug.Log("Dead");
-
-        yield return new WaitForSeconds(5f);
-
-        Debug.Log("Spawn");
-
-
-
-        // animations
-        animator.SetBool("Die", false);
-        animator.SetBool("Running", true);
-        animator.SetBool("Fire", true);
-        animator.SetBool("Walk", true);
-        animator.SetBool("Reloading", true);
-        animator.SetBool("Idle", true);
-        animator.SetBool("IdleAim", true);
-        animator.SetBool("AimWalk", true);
-        animator.SetBool("FireWalk", true);
-        animator.SetBool("Reloading", true);
-        // spawnpoint
-        playerCharacter.transform.position = spawn.transform.position; // assign the spawn points to  the enemy
-       // persuePlayer();
 
 
     }
+       IEnumerator Respawn()
+        {
+        playerSpeed = 0f;
+        Debug.Log("Player die");
+        animator.SetBool("Die", true);
+        Cursor.lockState = CursorLockMode.Locked;
+
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Spawn");
+        playerSpeed = 1.9f;
+        animator.SetBool("Die", false);
+        animator.SetBool("Idle", false);
+
+        yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
+
+        animator.SetBool("Idle", true);
+        // Enable the idle animation
+        animator.SetBool("Die", false);
+
+
+        playerCharacter.transform.position = spawn.transform.position;
+        Cursor.lockState = CursorLockMode.None;
+
+    }
+    
 }

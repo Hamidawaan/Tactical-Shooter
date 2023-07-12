@@ -219,7 +219,8 @@ public class PlayerMovement : MonoBehaviour
         playerSpeed = 0f;
         Debug.Log("Player die");
         animator.SetBool("Die", true);
-       // animator.SetBool("Fire", false);
+        // animator.SetBool("Fire", false);
+       // animator.SetBool("Walk", false);
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -233,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
 
         animator.SetBool("Idle", true);
+      //  animator.SetBool("Walk", true);
         // Enable the idle animation
         animator.SetBool("Die", false);
 

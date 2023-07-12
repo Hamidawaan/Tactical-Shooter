@@ -290,7 +290,7 @@ MonoBehaviour:
   PlayerHealth: 120
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 2.5
+  PlayerSpeed: 1
   lookPoint: {fileID: 1780569609}
   shootingRaycastArea: {fileID: 1134456914}
   PlayerAgent: {fileID: 84704836}
@@ -303,7 +303,7 @@ MonoBehaviour:
   timebtwShoot: 0.1
   animator: {fileID: 84704837}
   mazleSpark: {fileID: 3505353220473023767}
-  visionRadius: 100
+  visionRadius: 200
   shootingRadius: 10
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84704834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.62, y: -0.026401937, z: 3.7294574}
+  m_LocalPosition: {x: -16.6, y: -0.026401937, z: 3.7294574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -705,7 +705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139703011}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 0.97070503, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 1.0795218, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -908,7 +908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376779530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.84, y: 0, z: 0.62}
+  m_LocalPosition: {x: -21.67, y: -0.44, z: -1.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -943,7 +943,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5642246148955377216}
+  m_Father: {fileID: 2054568626}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 420900118}
   mazleSpark: {fileID: 1052955188271544571}
-  visionRadius: 200
+  visionRadius: 100
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -1082,7 +1082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420900115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.46, y: 4.044434, z: 6.2100906}
+  m_LocalPosition: {x: -14.39, y: 4.044434, z: 6.2100906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1227,7 +1227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430024338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.63, y: 0, z: -2.25}
+  m_LocalPosition: {x: 9.722, y: -0.751, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1453,7 +1453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672918622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.22, y: 0, z: 6.45}
+  m_LocalPosition: {x: -23.22, y: -0.59, z: 6.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 2.5
+  enemySpeed: 4
   lookPoint: {fileID: 2015268003}
   shootingRaycastArea: {fileID: 1225737157}
   enemyAgent: {fileID: 803437981}
@@ -1827,11 +1827,11 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 803437982}
   mazleSpark: {fileID: 6969646646091794291}
-  visionRadius: 200
+  visionRadius: 100
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
-  isplayer: 1
+  isplayer: 0
   audioSource: {fileID: 803437986}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
 --- !u!4 &803437984
@@ -1842,7 +1842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803437979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.770985, y: 4.044434, z: 5.772087}
+  m_LocalPosition: {x: -23.24, y: 4.044434, z: 5.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2021,7 +2021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861502946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.55, y: 0, z: 0}
+  m_LocalPosition: {x: -18.55, y: -0.54, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2442,7 +2442,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 1284106397}
   mazleSpark: {fileID: 6867761120023486473}
-  visionRadius: 200
+  visionRadius: 100
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -2457,7 +2457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284106394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.57, y: 4.044434, z: 5.772087}
+  m_LocalPosition: {x: -7.12, y: 4.044434, z: 5.772087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   PlayerHealth: 120
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 4
+  PlayerSpeed: 1
   lookPoint: {fileID: 1930783622}
   shootingRaycastArea: {fileID: 1191235400}
   PlayerAgent: {fileID: 1522766589}
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   timebtwShoot: 0.1
   animator: {fileID: 1522766590}
   mazleSpark: {fileID: 3472537851247106819}
-  visionRadius: 100
+  visionRadius: 200
   shootingRadius: 10
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
@@ -2980,7 +2980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522766587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.95, y: -0.026401937, z: 3.7294574}
+  m_LocalPosition: {x: -2.45, y: -0.026401937, z: 3.7294574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3333,7 +3333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574732640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.068781, y: -0.026401937, z: 3.7294574}
+  m_LocalPosition: {x: 12.56, y: -0.026401937, z: 3.7294574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   PlayerHealth: 120
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 3
+  PlayerSpeed: 5
   lookPoint: {fileID: 1775846280}
   shootingRaycastArea: {fileID: 21959403}
   PlayerAgent: {fileID: 1574732644}
@@ -3416,7 +3416,7 @@ MonoBehaviour:
   timebtwShoot: 0.1
   animator: {fileID: 1574732641}
   mazleSpark: {fileID: 7254932400565754705}
-  visionRadius: 100
+  visionRadius: 200
   shootingRadius: 10
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
@@ -3658,7 +3658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634692649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.47, y: 0, z: 0.74}
+  m_LocalPosition: {x: 8.47, y: -0.68, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3865,7 +3865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674144917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.93, y: 0, z: -3.17}
+  m_LocalPosition: {x: 1.85, y: -0.435, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4006,7 +4006,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 8
-  enemySpeed: 3
+  enemySpeed: 1
   lookPoint: {fileID: 385591281}
   shootingRaycastArea: {fileID: 1225737157}
   enemyAgent: {fileID: 1699323684}
@@ -4019,7 +4019,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 1699323685}
   mazleSpark: {fileID: 7470901858020314853}
-  visionRadius: 200
+  visionRadius: 100
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -4034,7 +4034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699323682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.969016, y: 4.044434, z: 2.2920876}
+  m_LocalPosition: {x: 0.01, y: 4.083, z: 6.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4179,7 +4179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756163584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0, z: 0.74}
+  m_LocalPosition: {x: -4.42, y: -0.676, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4478,7 +4478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857019397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.56, y: 0, z: -1.6}
+  m_LocalPosition: {x: -5.974, y: -0.71, z: -1.498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4694,7 +4694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996544229}
   m_Layer: 0
-  m_Name: Spawn Points
+  m_Name: Spawn Points Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4866,6 +4866,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 385591281}
   - {fileID: 5642246148955377216}
   - {fileID: 1689180946}
   m_Father: {fileID: 0}
@@ -5093,7 +5094,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063541507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.31, y: 0, z: 0.86}
+  m_LocalPosition: {x: -13.31, y: -0.758, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52612,7 +52613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4050248439900812282}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 0.97070503, y: 4.285158, z: 8.883205}
+  m_LocalPosition: {x: 1.0795218, y: 4.285158, z: 8.883205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57306,7 +57307,6 @@ Transform:
   - {fileID: 5644089678787000556}
   - {fileID: 5642083560323057008}
   - {fileID: 5642059223813700830}
-  - {fileID: 385591281}
   m_Father: {fileID: 2054568626}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

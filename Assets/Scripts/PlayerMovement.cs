@@ -214,15 +214,17 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-       IEnumerator Respawn()
-        {
+   IEnumerator Respawn()
+   {
         playerSpeed = 0f;
         Debug.Log("Player die");
         animator.SetBool("Die", true);
+       // animator.SetBool("Fire", false);
+
         Cursor.lockState = CursorLockMode.Locked;
 
-        yield return new WaitForSeconds(5f);
-
+        yield return new WaitForSeconds(4f);
+       
         Debug.Log("Spawn");
         playerSpeed = 1.9f;
         animator.SetBool("Die", false);
@@ -236,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         playerCharacter.transform.position = spawn.transform.position;
-        Cursor.lockState = CursorLockMode.None;
+       Cursor.lockState = CursorLockMode.None;
 
     }
     

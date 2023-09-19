@@ -21,6 +21,8 @@ public class PlayerAI : MonoBehaviour
     public Transform spawn;
     public Transform Playercharacter;
 
+    public ScoreManager scoreManager;
+
     [Header("Player shooting var")]
     public float timebtwShoot;
     bool previouslyShoot;
@@ -139,10 +141,15 @@ public class PlayerAI : MonoBehaviour
         animator.SetBool("Shooting", false);
         // animations
         Debug.Log("Dead");
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+        scoreManager.enemyKills += 1;
 
         yield return new WaitForSeconds(5f);
 
         Debug.Log("Spawn");
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
         presentHealth = 120f;
         PlayerSpeed = 3f;
         shootingRadius = 10f;

@@ -5503,6 +5503,7 @@ GameObject:
   - component: {fileID: 249468261}
   - component: {fileID: 249468260}
   - component: {fileID: 249468259}
+  - component: {fileID: 249468263}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -5596,6 +5597,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &249468263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249468258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00436d0f9e31c194eba712c0b00d191f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Kills: 0
+  enemyKills: 0
+  playerKillCounter: {fileID: 1202115765}
+  enemyKillCounter: {fileID: 841426016}
+  Maintext: {fileID: 999666709}
 --- !u!4 &250611356
 Transform:
   m_ObjectHideFlags: 0
@@ -19880,7 +19898,7 @@ GameObject:
   - component: {fileID: 841426017}
   - component: {fileID: 841426016}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: EnemyScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24283,7 +24301,7 @@ GameObject:
   - component: {fileID: 1202115766}
   - component: {fileID: 1202115765}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: PlayerScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51090,7 +51108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 20
   enemySpeed: 4
   lookPoint: {fileID: 457786340111849588}
   shootingRaycastArea: {fileID: 2660292868681446640}
@@ -51109,6 +51127,7 @@ MonoBehaviour:
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
+  scoreManager: {fileID: 249468263}
   audioSource: {fileID: 5629947658571867133}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
 --- !u!4 &878544157809373264
@@ -56142,7 +56161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 30
   PlayerSpeed: 2
   lookPoint: {fileID: 8769770721205423138}
   shootingRaycastArea: {fileID: 3517625706205192488}
@@ -56153,6 +56172,7 @@ MonoBehaviour:
     m_Bits: 128
   spawn: {fileID: 5129739701199248782}
   Playercharacter: {fileID: 5160320252177459039}
+  scoreManager: {fileID: 249468263}
   timebtwShoot: 0.1
   animator: {fileID: 6266558977125676102}
   mazleSpark: {fileID: 3488003736411328418}
@@ -64434,7 +64454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 15
   PlayerSpeed: 4
   lookPoint: {fileID: 6790890842498336293}
   shootingRaycastArea: {fileID: 5572704207564930025}
@@ -64445,11 +64465,12 @@ MonoBehaviour:
     m_Bits: 128
   spawn: {fileID: 1279535470088605100}
   Playercharacter: {fileID: 8740233757988982375}
+  scoreManager: {fileID: 249468263}
   timebtwShoot: 0.1
   animator: {fileID: 5340571517903930563}
   mazleSpark: {fileID: 8704514939399922334}
   visionRadius: 50
-  shootingRadius: 5
+  shootingRadius: 3
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1491401189032950434}
@@ -65156,7 +65177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 25
   PlayerSpeed: 3
   lookPoint: {fileID: 7571171127767344237}
   shootingRaycastArea: {fileID: 5745534638551467057}
@@ -65167,11 +65188,12 @@ MonoBehaviour:
     m_Bits: 128
   spawn: {fileID: 2379287569335302101}
   Playercharacter: {fileID: 4495585981801916343}
+  scoreManager: {fileID: 249468263}
   timebtwShoot: 0.1
   animator: {fileID: 7360600910796364750}
   mazleSpark: {fileID: 8161926007969618138}
   visionRadius: 50
-  shootingRadius: 5
+  shootingRadius: 4
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 4182907465069308784}
@@ -80656,7 +80678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 30
   enemySpeed: 1.5
   lookPoint: {fileID: 1931457802015983168}
   shootingRaycastArea: {fileID: 8632508646509313375}
@@ -80675,6 +80697,7 @@ MonoBehaviour:
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
+  scoreManager: {fileID: 249468263}
   audioSource: {fileID: 1844424640529881959}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
 --- !u!1 &5604412735313125298
@@ -85342,7 +85365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 15
   enemySpeed: 1
   lookPoint: {fileID: 8844875359787315335}
   shootingRaycastArea: {fileID: 2660292868681446640}
@@ -85361,6 +85384,7 @@ MonoBehaviour:
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
+  scoreManager: {fileID: 249468263}
   audioSource: {fileID: 7407104933594178106}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
 --- !u!4 &7185885753680042348
@@ -103464,7 +103488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 120
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 25
   enemySpeed: 2
   lookPoint: {fileID: 6107137999767091631}
   shootingRaycastArea: {fileID: 4243673769707591463}
@@ -103483,6 +103507,7 @@ MonoBehaviour:
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
+  scoreManager: {fileID: 249468263}
   audioSource: {fileID: 3469101708004689509}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
 --- !u!1 &8632508646509313375

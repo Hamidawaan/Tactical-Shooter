@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
     public bool playerinshootingRadius;
     public bool isplayer = false;
 
+    public ScoreManager scoreManager;
+
 
     [Header("Shooting Effect")]
     public AudioSource audioSource;
@@ -156,10 +158,16 @@ public class Enemy : MonoBehaviour
         animator.SetBool("Shooting", false);
         // animations
         Debug.Log("Dead");
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+        scoreManager.Kills += 1;
 
         yield return new WaitForSeconds(5f);
 
         Debug.Log("Spawn");
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
+
         presentHealth = 120f;
         enemySpeed = 3f;
         shootingRadius = 10f;

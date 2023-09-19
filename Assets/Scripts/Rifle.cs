@@ -15,7 +15,7 @@ public class Rifle : MonoBehaviour
 
     [Header("Rifle Amunation and Shooting")]
     private float nextTimeToShoot = 0f;
-    private int maximumAmunation = 20;
+    private int maximumAmunation = 40;
     private int mag = 15;
     private int presentAmunation;
     public float reloadingTime = 1.3f;

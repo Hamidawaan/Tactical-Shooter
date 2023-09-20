@@ -13,6 +13,19 @@ public class ScoreManager : MonoBehaviour
     public Text enemyKillCounter;
     public Text Maintext;
 
+     private void Awake()
+    {
+        if (PlayerPrefs.HasKey("Kills"))
+        {
+            Kills = PlayerPrefs.GetInt("0");
+        }
+        else if (PlayerPrefs.HasKey("enemyKills"))
+        {
+            enemyKills = PlayerPrefs.GetInt("0");
+        }
+
+    }
+
     private void Update()
     {
         StartCoroutine(WinOrLose());

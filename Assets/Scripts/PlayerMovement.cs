@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
             // playerDie();
             PlayerDie();
             
-           // StartCoroutine(Respawn());
+            StartCoroutine(Respawn());
 
         }
     }
@@ -209,13 +209,13 @@ public class PlayerMovement : MonoBehaviour
         //       Destroy(gameObject);
         //  StartCoroutine(Respawn());
         Debug.Log("Player Die");
-        Destroy(gameObject);
+        
 
 
 
 
     }
-  /* IEnumerator Respawn()
+   IEnumerator Respawn()
    {
         playerSpeed = 0f;
         Debug.Log("Player die");
@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.5f);
        
         Debug.Log("Spawn");
         playerSpeed = 1.9f;
@@ -243,6 +243,6 @@ public class PlayerMovement : MonoBehaviour
         playerCharacter.transform.position = spawn.transform.position;
        Cursor.lockState = CursorLockMode.None;
 
-    }*/
+    }
     
 }

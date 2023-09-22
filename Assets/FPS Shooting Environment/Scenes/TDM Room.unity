@@ -7710,7 +7710,7 @@ MonoBehaviour:
   animator: {fileID: 790779032956056823}
   mazleSpark: {fileID: 8707376667281043124}
   visionRadius: 100
-  shootingRadius: 10
+  shootingRadius: 12
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -17954,7 +17954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.9528302, g: 0.86743504, b: 0.86743504, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29210,7 +29210,7 @@ MonoBehaviour:
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
-  isplayer: 0
+  isplayer: 1
   scoreManager: {fileID: 4757980941921916950}
   audioSource: {fileID: 3033050557521566520}
   shootingSound: {fileID: 8300000, guid: 89534b0341b52a440bf3dfb3703124cb, type: 3}
@@ -55010,7 +55010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Color: {r: 0.9528302, g: 0.8944019, b: 0.8944019, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
                 if (isplayer == true) // the enemy check if it is player then shoot the player 
                 {
                    // PlayerMovement playerBody = hit.transform.GetComponent<PlayerMovement>();
-                   PlayerMovement playerbody  = hit.transform.transform.GetComponent<PlayerMovement>();
+                   PlayerMovement playerbody  = hit.transform.GetComponent<PlayerMovement>();
                     if (playerbody != null)
                     {
                         playerbody.playerHitDamage(giveDamage);

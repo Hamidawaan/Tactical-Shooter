@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Player Health Things")]
-    public float playerHealth = 200f;
+    public float playerHealth = 50f;
     public float presentHealth;
     public HealthBar healthBar;
     //public NavMeshAgent PlayerAgent;
@@ -189,14 +189,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void playerHitDamage(float takeDamage)
     {
-        presentHealth -= takeDamage;
+        presentHealth = presentHealth - takeDamage;
         //  healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
             // playerDie();
             PlayerDie();
             
-            StartCoroutine(Respawn());
+           // StartCoroutine(Respawn());
 
         }
     }
@@ -209,12 +209,13 @@ public class PlayerMovement : MonoBehaviour
         //       Destroy(gameObject);
         //  StartCoroutine(Respawn());
         Debug.Log("Player Die");
-        
+        Destroy(gameObject);
+
 
 
 
     }
-   IEnumerator Respawn()
+  /* IEnumerator Respawn()
    {
         playerSpeed = 0f;
         Debug.Log("Player die");
@@ -242,6 +243,6 @@ public class PlayerMovement : MonoBehaviour
         playerCharacter.transform.position = spawn.transform.position;
        Cursor.lockState = CursorLockMode.None;
 
-    }
+    }*/
     
 }

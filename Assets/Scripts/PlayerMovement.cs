@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Player Health Things")]
-    public float playerHealth = 50f;
+    public float playerHealth = 100f;
     public float presentHealth;
     public HealthBar healthBar;
     //public NavMeshAgent PlayerAgent;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         presentHealth = playerHealth;
-        // healthBar.GiveFullHealth(playerHealth);
+        healthBar.GiveFullHealth(playerHealth);
     }
 
     private void Update()
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     public void playerHitDamage(float takeDamage)
     {
         presentHealth = presentHealth - takeDamage;
-        //  healthBar.SetHealth(presentHealth);
+         healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
             // playerDie();
@@ -225,9 +225,11 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(5f);
        
         Debug.Log("Spawn");
+        presentHealth = playerHealth;
+        healthBar.GiveFullHealth(playerHealth);
         playerSpeed = 1.9f;
         animator.SetBool("Die", false);
       //  animator.SetBool("Idle", false);

@@ -102,6 +102,10 @@ public class Rifle : MonoBehaviour
             mag--;
         }
 
+        AmmoCount.occurrence.UpdateAmmoText(presentAmunation);
+        AmmoCount.occurrence.UpdateMagText(mag);
+
+
         mazzleSpark.Play();
         audioSource.PlayOneShot(shootingSound);
         RaycastHit hitInfo;

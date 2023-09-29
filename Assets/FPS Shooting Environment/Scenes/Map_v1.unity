@@ -47987,7 +47987,7 @@ MonoBehaviour:
   animator: {fileID: 6209355848079837429}
   mazleSpark: {fileID: 6096695583682077878}
   visionRadius: 100
-  shootingRadius: 12
+  shootingRadius: 8
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 0
@@ -49092,7 +49092,7 @@ MonoBehaviour:
   enemyHealth: 120
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 1
+  enemySpeed: 3
   lookPoint: {fileID: 84681876512675712}
   shootingRaycastArea: {fileID: 5699236862218866262}
   enemyAgent: {fileID: 2584869901532576706}
@@ -49106,7 +49106,7 @@ MonoBehaviour:
   animator: {fileID: 5871429422660149910}
   mazleSpark: {fileID: 6432557329816867554}
   visionRadius: 100
-  shootingRadius: 11
+  shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
   isplayer: 1
@@ -63951,7 +63951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947697030774761659}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 80.9885, y: -6.447858, z: -68.34448}
+  m_LocalPosition: {x: 81.55791, y: -6.447858, z: -68.34448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66341,9 +66341,9 @@ MonoBehaviour:
   playerHealth: 100
   presentHealth: 0
   healthBar: {fileID: 4029801184954085402}
-  playerSpeed: 1.9
+  playerSpeed: 2
   currentPlayerSpeed: 0
-  playerSprint: 3
+  playerSprint: 4
   currentplayerSprint: 0
   playerCharacter: {fileID: 2013028638531000071}
   spawn: {fileID: 4739968681271060372}
@@ -68978,7 +68978,7 @@ MonoBehaviour:
   animator: {fileID: 2581559895337219350}
   mazleSpark: {fileID: 7975263110027060225}
   visionRadius: 100
-  shootingRadius: 10
+  shootingRadius: 8
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 3669574068601665666}
@@ -78727,7 +78727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6437987520641336237}
   m_LocalRotation: {x: 0.00209307, y: -0, z: -0, w: 0.99999785}
-  m_LocalPosition: {x: 78.65727, y: 0.7209034, z: -66.64364}
+  m_LocalPosition: {x: 79.22668, y: 0.7209034, z: -66.64364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -92054,7 +92054,7 @@ MonoBehaviour:
   animator: {fileID: 1820747955093949371}
   mazleSpark: {fileID: 4663364633717933802}
   visionRadius: 100
-  shootingRadius: 10
+  shootingRadius: 9
   enemyinvisionRadius: 0
   enemyinshootingRadius: 0
   audioSource: {fileID: 1830720253799831066}

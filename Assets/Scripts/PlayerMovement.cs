@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
        
         Debug.Log("Spawn");
         presentHealth = playerHealth;
@@ -234,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Die", false);
       //  animator.SetBool("Idle", false);
 
-        yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
+      //  yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
 
         animator.SetBool("Idle", true);
       //  animator.SetBool("Walk", true);

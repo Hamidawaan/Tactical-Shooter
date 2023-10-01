@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Player Health Things")]
+    
     public float playerHealth = 100f;
     public float presentHealth;
     public HealthBar healthBar;
@@ -195,15 +196,17 @@ public class PlayerMovement : MonoBehaviour
         {
             // playerDie();
             PlayerDie();
-            
-            StartCoroutine(Respawn());
+            // Cursor.lockState = CursorLockMode.Locked;
+           
 
+            StartCoroutine(Respawn());
+            
         }
     }
 
     private void PlayerDie()
    {
-        // Cursor.lockState = CursorLockMode.None;
+       //  Cursor.lockState = CursorLockMode.Locked;
 
         //  Other.Destroy(gameObject);
         //       Destroy(gameObject);
@@ -218,26 +221,29 @@ public class PlayerMovement : MonoBehaviour
    IEnumerator Respawn()
    {
         playerSpeed = 0f;
+        playerSprint = 0f;
+
         Debug.Log("Player die");
         animator.SetBool("Die", true);
-        // animator.SetBool("Fire", false);
-       // animator.SetBool("Walk", false);
-
-        Cursor.lockState = CursorLockMode.Locked;
-
-        yield return new WaitForSeconds(4f);
+      
+        yield return new WaitForSeconds(2f);
        
         Debug.Log("Spawn");
-        presentHealth = playerHealth;
-        healthBar.GiveFullHealth(playerHealth);
-        playerSpeed = 1.9f;
-        animator.SetBool("Die", false);
-      //  animator.SetBool("Idle", false);
 
-      //  yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
+        
+        presentHealth = playerHealth;
+       
+        healthBar.GiveFullHealth(playerHealth);
+        playerSpeed = 4f;
+        playerSprint = 3f;
+        animator.SetBool("Die", false);
+        animator.SetBool("Fire", true);
+        //  animator.SetBool("Idle", false);
+
+          yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation
 
         animator.SetBool("Idle", true);
-      //  animator.SetBool("Walk", true);
+       animator.SetBool("Walk", true);
         // Enable the idle animation
         animator.SetBool("Die", false);
 

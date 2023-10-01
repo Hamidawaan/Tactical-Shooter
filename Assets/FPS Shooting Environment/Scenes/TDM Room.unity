@@ -14406,7 +14406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8910088920472345510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.917, y: 4.006, z: -3.71}
+  m_LocalPosition: {x: 2.917, y: 4.006, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15748,10 +15748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 1.5
+  enemySpeed: 3
   lookPoint: {fileID: 758035253830981799}
   shootingRaycastArea: {fileID: 93795406876993710}
   enemyAgent: {fileID: 6475177117607421793}
@@ -15764,7 +15764,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 6174431942442749534}
   mazleSpark: {fileID: 6275833466545971741}
-  visionRadius: 100
+  visionRadius: 50
   shootingRadius: 12
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -17666,10 +17666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
   giveDamage: 5
-  enemySpeed: 1
+  enemySpeed: 2
   lookPoint: {fileID: 193431214883377451}
   shootingRaycastArea: {fileID: 5518084540896446717}
   enemyAgent: {fileID: 2331915073403600233}
@@ -17682,7 +17682,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 5978648275706995773}
   mazleSpark: {fileID: 6541168202716206153}
-  visionRadius: 100
+  visionRadius: 50
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -25875,7 +25875,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6001398265454908279}
   m_LocalRotation: {x: -0.0035647214, y: 0.008315388, z: -0.011620017, w: 0.9998916}
-  m_LocalPosition: {x: 0, y: 0, z: 12.41729}
+  m_LocalPosition: {x: 0, y: 0, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25884,10 +25884,10 @@ RectTransform:
   - {fileID: 2995732457157751100}
   m_Father: {fileID: 247525303740665342}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -0.397, y: 0.958, z: -1.335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.3533037, y: 9.818308}
+  m_AnchoredPosition: {x: -3.863, y: 6.913}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1764245155522357407
@@ -27770,10 +27770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 100
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 1
+  PlayerSpeed: 4
   lookPoint: {fileID: 1226904490244121495}
   shootingRaycastArea: {fileID: 1821255881327306939}
   PlayerAgent: {fileID: 4788490100993713704}
@@ -40027,7 +40027,7 @@ MonoBehaviour:
   playerHealth: 100
   presentHealth: 0
   healthBar: {fileID: 4309035289857517236}
-  playerSpeed: 1.9
+  playerSpeed: 4
   currentPlayerSpeed: 0
   playerSprint: 3
   currentplayerSprint: 0
@@ -43577,7 +43577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 100
   presentHealth: 0
   giveDamage: 5
   PlayerSpeed: 5
@@ -53167,7 +53167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
   giveDamage: 5
   enemySpeed: 4
@@ -53183,7 +53183,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 5250468525711204635}
   mazleSpark: {fileID: 403643517256260234}
-  visionRadius: 100
+  visionRadius: 50
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -61763,7 +61763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6547036042683385094}
   m_LocalRotation: {x: 0.00209307, y: -0, z: -0, w: 0.99999785}
-  m_LocalPosition: {x: -1.3912246, y: 11.45392, z: 10.584048}
+  m_LocalPosition: {x: -2.772613, y: 8.548612, z: -1.832242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62023,7 +62023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5943396, g: 0.13330291, b: 0.058873262, a: 1}
+  m_Color: {r: 0.95707035, g: 0.9622642, b: 0.9304913, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -68536,7 +68536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
   giveDamage: 5
   enemySpeed: 2
@@ -68552,7 +68552,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 2448402760029642186}
   mazleSpark: {fileID: 2173303133895831529}
-  visionRadius: 100
+  visionRadius: 50
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -69570,10 +69570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 100
   presentHealth: 0
   giveDamage: 5
-  PlayerSpeed: 1
+  PlayerSpeed: 3
   lookPoint: {fileID: 5727439652375077746}
   shootingRaycastArea: {fileID: 2823632851225286714}
   PlayerAgent: {fileID: 9089020293601714755}
@@ -73468,7 +73468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2722822562565107264}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 0.940007, y: 4.2851586, z: 8.883205}
+  m_LocalPosition: {x: -0.44138134, y: 1.3798504, z: -3.5330846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

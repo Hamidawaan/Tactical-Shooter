@@ -146,7 +146,7 @@ public class Rifle : MonoBehaviour
         //Annimation
         animator.SetBool("Reloading", false);
         presentAmunation = maximumAmunation;
-        player.playerSpeed = 1.9f;
+        player.playerSpeed = 4f;
         player.playerSprint = 3f;
         setReloading = false;
 

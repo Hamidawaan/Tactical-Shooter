@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("Kills", Kills);
             Time.timeScale = 0f;
             yield return new WaitForSeconds(5f);
-            SceneManager.LoadScene("TDMRoom");
+            SceneManager.LoadScene("Test_Map");
 
         }
 

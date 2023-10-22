@@ -47970,10 +47970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
-  giveDamage: 5
-  enemySpeed: 1.5
+  giveDamage: 10
+  enemySpeed: 7
   lookPoint: {fileID: 650479950720835084}
   shootingRaycastArea: {fileID: 202335915347832325}
   enemyAgent: {fileID: 6512097676313584074}
@@ -47986,7 +47986,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 6209355848079837429}
   mazleSpark: {fileID: 6096695583682077878}
-  visionRadius: 100
+  visionRadius: 120
   shootingRadius: 8
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -49089,10 +49089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
-  giveDamage: 5
-  enemySpeed: 3
+  giveDamage: 10
+  enemySpeed: 5
   lookPoint: {fileID: 84681876512675712}
   shootingRaycastArea: {fileID: 5699236862218866262}
   enemyAgent: {fileID: 2584869901532576706}
@@ -49105,7 +49105,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 5871429422660149910}
   mazleSpark: {fileID: 6432557329816867554}
-  visionRadius: 100
+  visionRadius: 120
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -61429,10 +61429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 90
   presentHealth: 0
-  giveDamage: 5
-  PlayerSpeed: 1
+  giveDamage: 10
+  PlayerSpeed: 6
   lookPoint: {fileID: 1334536909958817084}
   shootingRaycastArea: {fileID: 1929101459688910352}
   PlayerAgent: {fileID: 4753496070911123587}
@@ -61443,7 +61443,7 @@ MonoBehaviour:
   spawn: {fileID: 5456098272976995012}
   Playercharacter: {fileID: 5655808154678683893}
   scoreManager: {fileID: 3646656416354607378}
-  timebtwShoot: 0.1
+  timebtwShoot: 0.2
   animator: {fileID: 3883758324309126191}
   mazleSpark: {fileID: 1509553048485144619}
   visionRadius: 100
@@ -63951,7 +63951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947697030774761659}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 81.55791, y: -6.447858, z: -68.34448}
+  m_LocalPosition: {x: 81.35169, y: -6.447858, z: -68.34448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66341,9 +66341,9 @@ MonoBehaviour:
   playerHealth: 100
   presentHealth: 0
   healthBar: {fileID: 4029801184954085402}
-  playerSpeed: 2
+  playerSpeed: 4
   currentPlayerSpeed: 0
-  playerSprint: 4
+  playerSprint: 2
   currentplayerSprint: 0
   playerCharacter: {fileID: 2013028638531000071}
   spawn: {fileID: 4739968681271060372}
@@ -68960,10 +68960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 90
   presentHealth: 0
-  giveDamage: 5
-  PlayerSpeed: 5
+  giveDamage: 10
+  PlayerSpeed: 7
   lookPoint: {fileID: 5731057723838929904}
   shootingRaycastArea: {fileID: 5927551529720908285}
   PlayerAgent: {fileID: 2284377802905323616}
@@ -68974,7 +68974,7 @@ MonoBehaviour:
   spawn: {fileID: 1944342139704464366}
   Playercharacter: {fileID: 8304388790553941796}
   scoreManager: {fileID: 3646656416354607378}
-  timebtwShoot: 0.1
+  timebtwShoot: 0.2
   animator: {fileID: 2581559895337219350}
   mazleSpark: {fileID: 7975263110027060225}
   visionRadius: 100
@@ -77185,9 +77185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
-  giveDamage: 5
+  giveDamage: 10
   enemySpeed: 4
   lookPoint: {fileID: 8550329666964223140}
   shootingRaycastArea: {fileID: 1986232743927139797}
@@ -77201,7 +77201,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 5430923695902795696}
   mazleSpark: {fileID: 439640542525643809}
-  visionRadius: 100
+  visionRadius: 120
   shootingRadius: 9
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -78727,7 +78727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6437987520641336237}
   m_LocalRotation: {x: 0.00209307, y: -0, z: -0, w: 0.99999785}
-  m_LocalPosition: {x: 79.22668, y: 0.7209034, z: -66.64364}
+  m_LocalPosition: {x: 79.02046, y: 0.7209034, z: -66.64364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90665,10 +90665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafdab936fb07b844a968e9c56741d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 120
+  enemyHealth: 100
   presentHealth: 0
-  giveDamage: 5
-  enemySpeed: 2
+  giveDamage: 10
+  enemySpeed: 3
   lookPoint: {fileID: 3790611893681174546}
   shootingRaycastArea: {fileID: 2749458294570465832}
   enemyAgent: {fileID: 3883856047289011531}
@@ -90681,7 +90681,7 @@ MonoBehaviour:
   timebtwShoot: 0.2
   animator: {fileID: 2484179719739415393}
   mazleSpark: {fileID: 2137787819843758402}
-  visionRadius: 100
+  visionRadius: 120
   shootingRadius: 10
   playerinvisionRadius: 0
   playerinshootingRadius: 0
@@ -92036,10 +92036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33c9ad0785c5b4fb19c950e6e2dd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 120
+  PlayerHealth: 90
   presentHealth: 0
-  giveDamage: 5
-  PlayerSpeed: 1
+  giveDamage: 10
+  PlayerSpeed: 5
   lookPoint: {fileID: 5546210537675072985}
   shootingRaycastArea: {fileID: 2642594849110564497}
   PlayerAgent: {fileID: 9052590190192321768}
@@ -92050,7 +92050,7 @@ MonoBehaviour:
   spawn: {fileID: 3235578032232848688}
   Playercharacter: {fileID: 1256220521533279811}
   scoreManager: {fileID: 3646656416354607378}
-  timebtwShoot: 0.1
+  timebtwShoot: 0.2
   animator: {fileID: 1820747955093949371}
   mazleSpark: {fileID: 4663364633717933802}
   visionRadius: 100

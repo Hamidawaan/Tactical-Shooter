@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float presentHealth;
     public HealthBar healthBar;
     //public NavMeshAgent PlayerAgent;
-    bool isPlayerAlive = true;
+     bool isPlayerAlive = true;
     //public Transform Player;
 
 
@@ -51,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask surfaceMask;
 
 
+    public bool mobileInputs;
+    public FixedJoystick joyStick;
+    public FixedJoystick sprintJoyStick;
+
+
     private void Start()
     {
         
@@ -60,17 +65,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+      //  Cursor.lockState = CursorLockMode.Locked;
         
-
-
-
-
-
-
-
         //if the character is on a surface, applies a downward force to keep it grounded,
         //updates the velocity with gravity, and finally moves the character based on the updated velocity.
+
+       /* if(currentPlayerSpeed > 0)
+        {
+            sprintJoyStick = null;  // this means when  we move the player the sprint joystick will not move
+        }
+        else
+        {
+            FixedJoystick sprintJS =   GameObject.Find("PlayerSprintJoystick").GetComponent<FixedJoystick>(); 
+            sprintJoyStick = sprintJS;
+        }
+       */
+        
+    
+      
+
+
         onSurface = Physics.CheckSphere(surfaceCheck.position, surfaceDistance, surfaceMask);
 
         if (onSurface && velocity.y < 0)
@@ -88,54 +102,47 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMove()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
     {
-
-
-
-        animator.SetBool("Walk", true);
-        animator.SetBool("Running", false);
-        animator.SetTrigger("Jump");
-        animator.SetBool("Idle", false);
-        animator.SetBool("AimWalk", false);
-        animator.SetBool("IdleAim", false);
-
-
-
-        float horizontal_axis = Input.GetAxisRaw("Horizontal");
-        float Vertical_axis = Input.GetAxisRaw("Vertical");
-
-        Vector3 direction = new Vector3(horizontal_axis, 0f, Vertical_axis).normalized;
-
-        if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
+        if(mobileInputs == true)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+
+            float horizontal_axis = joyStick.Horizontal;
+            float Vertical_axis =  joyStick.Vertical;
+
+            Vector3 direction = new Vector3(horizontal_axis, 0f, Vertical_axis).normalized;
+
+            if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
+            {
+
+                animator.SetBool("Walk", true);
+                animator.SetBool("Running", false);
+                animator.SetTrigger("Jump");
+                animator.SetBool("Idle", false);
+                animator.SetBool("AimWalk", false);
+                animator.SetBool("IdleAim", false);
 
 
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
-            currentPlayerSpeed = playerSpeed;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
+                currentPlayerSpeed = playerSpeed;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
+            }
+            else
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Running", false);
+                animator.SetTrigger("Jump");
+
+                animator.SetBool("AimWalk", false);
+                currentPlayerSpeed = 0f;
+
+            }
         }
         else
         {
-            animator.SetBool("Idle", true);
-            animator.SetBool("Walk", false);
-            animator.SetBool("Running", false);
-            animator.SetTrigger("Jump");
-
-            animator.SetBool("AimWalk", false);
-            currentPlayerSpeed = 0f;
-
-        }
-
-
-    }
-    void Sprint()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
-    {
-
-        if (Input.GetButton("Sprint") && Input.GetKey(KeyCode.W) && onSurface)
-        {
-
 
             float horizontal_axis = Input.GetAxisRaw("Horizontal");
             float Vertical_axis = Input.GetAxisRaw("Vertical");
@@ -144,29 +151,107 @@ public class PlayerMovement : MonoBehaviour
 
             if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
             {
-                animator.SetBool("Running", true);
-                animator.SetBool("Walk", false);
+
+                animator.SetBool("Walk", true);
+                animator.SetBool("Running", false);
+                animator.SetTrigger("Jump");
                 animator.SetBool("Idle", false);
+                animator.SetBool("AimWalk", false);
                 animator.SetBool("IdleAim", false);
+
 
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
-
-
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
                 Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 cC.Move(moveDirection.normalized * playerSpeed * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
-                currentplayerSprint = playerSprint;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
-
+                currentPlayerSpeed = playerSpeed;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
             }
             else
             {
+                animator.SetBool("Idle", true);
                 animator.SetBool("Walk", false);
+                animator.SetBool("Running", false);
+                animator.SetTrigger("Jump");
+
+                animator.SetBool("AimWalk", false);
+                currentPlayerSpeed = 0f;
+
+            }
+        }
+
+    }
+    void Sprint()   //(normalized) the magnitude of the direction vector is always between 0 and 1.
+    {
+        if (mobileInputs == true)
+        {
+
+             float horizontal_axis = sprintJoyStick.Horizontal;
+           
+            float Vertical_axis = sprintJoyStick.Vertical;
+
+            Vector3 direction = new Vector3(horizontal_axis, 0f, Vertical_axis).normalized;
+
+            if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
+            {
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Running", true);             
+                animator.SetBool("Idle", false);             
+                animator.SetBool("IdleAim", false);
+
+
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                cC.Move(moveDirection.normalized * playerSprint * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
+                currentplayerSprint = playerSprint;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
+            }
+            else
+            {
                 animator.SetBool("Idle", false);
+                animator.SetBool("Walk", false);
+                currentplayerSprint = 0f;
+
+            }
+        }
+        else
+        {
+
+            float horizontal_axis = Input.GetAxisRaw("Horizontal");
+            float Vertical_axis = Input.GetAxisRaw("Vertical");
+
+            Vector3 direction = new Vector3(horizontal_axis, 0f, Vertical_axis).normalized;
+
+            if (direction.magnitude >= 0.1f)//magnitude is to calculate the length of the vector
+            {
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Running", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", false);
+
+
+
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.eulerAngles.y;// calculates the target angle based on the direction vector and sets the object's rotation to face that angle in a single line.  
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);// used to smoothly rotate objects, such as a character or camera, to a desired angle over time,
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                cC.Move(moveDirection.normalized * playerSprint * Time.deltaTime);//Time.deltaTime to ensure consistent movement speed across different frame rates. //  that represents the time in seconds
+                currentplayerSprint = playerSprint;                                                            //direction.normalized is used to normalize the direction vector before applying it to the player's movement. This ensures that the player moves at a consistent speed
+            }
+            else
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Walk", false);
                 currentplayerSprint = 0f;
             }
-
         }
+
 
     }
 
@@ -225,6 +310,7 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Player die");
         animator.SetBool("Die", true);
+        animator.SetBool("Fire", false);
       
         yield return new WaitForSeconds(3f);
        
@@ -236,8 +322,8 @@ public class PlayerMovement : MonoBehaviour
         healthBar.GiveFullHealth(playerHealth);
         playerSpeed = 4f;
         playerSprint = 3f;
-        animator.SetBool("Die", false);
-        animator.SetBool("Fire", true);
+      //  animator.SetBool("Die", false);
+      //  animator.SetBool("Fire", true);
         //  animator.SetBool("Idle", false);
 
           yield return new WaitForEndOfFrame(); // Wait for end of frame before enabling the idle animation

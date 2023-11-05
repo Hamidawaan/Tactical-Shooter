@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Rifle : MonoBehaviour
 {
@@ -41,10 +42,7 @@ public class Rifle : MonoBehaviour
 
     private void Update()
     {
-        
-
-
-
+      
 
         if (setReloading)// when we are not reloading
             return;
@@ -55,35 +53,73 @@ public class Rifle : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
-        {
-            animator.SetBool("Fire", true);
-            animator.SetBool("Idle", false);
-            nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
-            shoot();
-        }
-        else if (Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            animator.SetBool("Idle", false);
-            animator.SetBool("FireWalk", true);
 
 
-        }
-        else if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
+        if (player.mobileInputs == true)
         {
-            animator.SetBool("Idle", false);
-            animator.SetBool("IdleAim", true);
-            animator.SetBool("FireWalk", true);
-            animator.SetBool("Walk", true);
-            animator.SetBool("Reloading", false);
+            if (CrossPlatformInputManager.GetButton("Shoot") && Time.time >= nextTimeToShoot)
+            {
+                animator.SetBool("Fire", true);
+                animator.SetBool("Idle", false);
+                nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
+                shoot();
+            }
+            else if (Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("FireWalk", true);
 
+
+            }
+            else if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("FireWalk", true);
+                animator.SetBool("Walk", true);
+                animator.SetBool("Reloading", false);
+
+            }
+            else
+            {
+                animator.SetBool("Fire", false);
+                animator.SetBool("Idle", true);
+                animator.SetBool("FireWalk", false);
+
+            }
         }
         else
         {
-            animator.SetBool("Fire", false);
-            animator.SetBool("Idle", true);
-            animator.SetBool("FireWalk", false);
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
+            {
+                animator.SetBool("Fire", true);
+                animator.SetBool("Idle", false);
+                nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
+                shoot();
+            }
+            else if (Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("FireWalk", true);
 
+
+            }
+            else if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("FireWalk", true);
+                animator.SetBool("Walk", true);
+                animator.SetBool("Reloading", false);
+
+            }
+            else
+            {
+                animator.SetBool("Fire", false);
+                animator.SetBool("Idle", true);
+                animator.SetBool("FireWalk", false);
+
+            }
         }
     }
     void shoot()

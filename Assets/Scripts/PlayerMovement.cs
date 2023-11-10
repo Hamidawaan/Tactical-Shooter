@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -258,17 +259,35 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && onSurface)
+        if(mobileInputs == true)
         {
-            animator.SetBool("Walk", false);
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && onSurface)
+            {
+                animator.SetBool("Walk", false);
 
-            animator.SetTrigger("Jump");
-            velocity.y = Mathf.Sqrt(jumpRange * -2 * gravity);
+                animator.SetTrigger("Jump");
+                velocity.y = Mathf.Sqrt(jumpRange * -2 * gravity);
 
+            }
+            else
+            {
+                animator.ResetTrigger("Jump");
+            }
         }
         else
         {
-            animator.ResetTrigger("Jump");
+            if (Input.GetButtonDown("Jump") && onSurface)
+            {
+                animator.SetBool("Walk", false);
+
+                animator.SetTrigger("Jump");
+                velocity.y = Mathf.Sqrt(jumpRange * -2 * gravity);
+
+            }
+            else
+            {
+                animator.ResetTrigger("Jump");
+            }
         }
     }
 

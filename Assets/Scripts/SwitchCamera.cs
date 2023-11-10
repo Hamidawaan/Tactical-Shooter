@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class SwitchCamera : MonoBehaviour
 {
@@ -10,48 +11,95 @@ public class SwitchCamera : MonoBehaviour
      public GameObject ThirdPersonCam;
      public GameObject ThirdPersonCanvas;
     public Animator animator;
+    public PlayerMovement player;
 
 
     private void Update()
     {
-        if (Input.GetButton("Fire2") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        { 
-            animator.SetBool("Idle", false);
-            animator.SetBool("IdleAim", true);
-            animator.SetBool("AimWalk", true);
-            animator.SetBool("Walk", true);
-
-
-            ThirdPersonCam.SetActive(false);
-            ThirdPersonCanvas.SetActive(false);
-            AimCam.SetActive(true);
-            AimCanvas.SetActive(true);
-        }
-        else if(Input.GetButton("Fire2"))
+      if(player.mobileInputs == true)
         {
-        animator.SetBool("Idle", false);
-            animator.SetBool("IdleAim", true);
-            animator.SetBool("AimWalk", false);
-            animator.SetBool("Walk", false);
+            if (CrossPlatformInputManager.GetButton("Aim") && player.currentPlayerSpeed > 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("AimWalk", true);
+                animator.SetBool("Walk", true);
 
 
-            ThirdPersonCam.SetActive(false);
-            ThirdPersonCanvas.SetActive(false);
-            AimCam.SetActive(true);
-            AimCanvas.SetActive(true);
-        }
-        else
+                ThirdPersonCam.SetActive(false);
+                ThirdPersonCanvas.SetActive(false);
+                AimCam.SetActive(true);
+                AimCanvas.SetActive(true);
+            }
+            else if (CrossPlatformInputManager.GetButton("Aim"))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("AimWalk", false);
+                animator.SetBool("Walk", false);
+
+
+                ThirdPersonCam.SetActive(false);
+                ThirdPersonCanvas.SetActive(false);
+                AimCam.SetActive(true);
+                AimCanvas.SetActive(true);
+            }
+            else
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("IdleAim", false);
+                animator.SetBool("AimWalk", false);
+
+
+                ThirdPersonCam.SetActive(true);
+                ThirdPersonCanvas.SetActive(true);
+                AimCam.SetActive(false);
+                AimCanvas.SetActive(false);
+            }
+        
+    }
+      else
         {
-            animator.SetBool("Idle", true);
-            animator.SetBool("IdleAim", false);
-            animator.SetBool("AimWalk", false);
-            
+            if (Input.GetButton("Fire2") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("AimWalk", true);
+                animator.SetBool("Walk", true);
 
-            ThirdPersonCam.SetActive(true);
-            ThirdPersonCanvas.SetActive(true);
-            AimCam.SetActive(false);
-            AimCanvas.SetActive(false);
+
+                ThirdPersonCam.SetActive(false);
+                ThirdPersonCanvas.SetActive(false);
+                AimCam.SetActive(true);
+                AimCanvas.SetActive(true);
+            }
+            else if (Input.GetButton("Fire2"))
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("IdleAim", true);
+                animator.SetBool("AimWalk", false);
+                animator.SetBool("Walk", false);
+
+
+                ThirdPersonCam.SetActive(false);
+                ThirdPersonCanvas.SetActive(false);
+                AimCam.SetActive(true);
+                AimCanvas.SetActive(true);
+            }
+            else
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("IdleAim", false);
+                animator.SetBool("AimWalk", false);
+
+
+                ThirdPersonCam.SetActive(true);
+                ThirdPersonCanvas.SetActive(true);
+                AimCam.SetActive(false);
+                AimCanvas.SetActive(false);
+            }
         }
     }
+    
 
 }

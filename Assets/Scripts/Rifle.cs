@@ -42,7 +42,7 @@ public class Rifle : MonoBehaviour
 
     private void Update()
     {
-      
+
 
         if (setReloading)// when we are not reloading
             return;
@@ -59,6 +59,7 @@ public class Rifle : MonoBehaviour
         {
             if (CrossPlatformInputManager.GetButton("Shoot") && Time.time >= nextTimeToShoot)
             {
+
                 animator.SetBool("Fire", true);
                 animator.SetBool("Idle", false);
                 nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
@@ -194,6 +195,3 @@ public class Rifle : MonoBehaviour
 
 
 }
-
-    
-

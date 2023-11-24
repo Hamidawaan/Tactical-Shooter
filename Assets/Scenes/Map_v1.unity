@@ -61466,7 +61466,7 @@ GameObject:
   - component: {fileID: 8865580387133503336}
   - component: {fileID: 8672618235951482182}
   m_Layer: 6
-  m_Name: Tommy_gun_mesh
+  m_Name: AK47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63951,7 +63951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7947697030774761659}
   m_LocalRotation: {x: 0.00209307, y: 0, z: 0, w: 0.99999785}
-  m_LocalPosition: {x: 81.35169, y: -6.447858, z: -68.34448}
+  m_LocalPosition: {x: 81.1066, y: -6.447858, z: -68.34448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66358,6 +66358,9 @@ MonoBehaviour:
   surfaceMask:
     serializedVersion: 2
     m_Bits: 4096
+  mobileInputs: 0
+  joyStick: {fileID: 0}
+  sprintJoyStick: {fileID: 0}
 --- !u!1 &3645928076053073412
 GameObject:
   m_ObjectHideFlags: 0
@@ -78727,7 +78730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6437987520641336237}
   m_LocalRotation: {x: 0.00209307, y: -0, z: -0, w: 0.99999785}
-  m_LocalPosition: {x: 79.02046, y: 0.7209034, z: -66.64364}
+  m_LocalPosition: {x: 78.77537, y: 0.7209034, z: -66.64364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -105925,6 +105928,7 @@ MonoBehaviour:
   ThirdPersonCam: {fileID: 6437987520641336237}
   ThirdPersonCanvas: {fileID: 6482422803569387755}
   animator: {fileID: 6872260644506054599}
+  player: {fileID: 3638847839432431203}
 --- !u!1 &8672672763367753699
 GameObject:
   m_ObjectHideFlags: 0

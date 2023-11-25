@@ -65,14 +65,14 @@ public class Rifle : MonoBehaviour
                 nextTimeToShoot = Time.time + 1f / fireCharge;  // Time.time is the current time. //   the 1f/firecharge means the rifle shoot raycst will be 0.06
                 shoot();
             }
-            else if(Input.GetButton("Fire1") && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            else if(CrossPlatformInputManager.GetButton("Shoot") && player.currentPlayerSpeed > 0)
             {
                 animator.SetBool("Idle", false);
                 animator.SetBool("FireWalk", true);
 
 
             }
-            else if(Input.GetButton("Fire1") && Input.GetButton("Fire2"))
+            else if(CrossPlatformInputManager.GetButton("Shoot") && CrossPlatformInputManager.GetButton("Aim") )
             {
                 animator.SetBool("Idle", false);
                 animator.SetBool("IdleAim", true);

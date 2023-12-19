@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Player Movement")]
-    public float playerSpeed = 1.9f;
+    public float playerSpeed = 3f;
     public float currentPlayerSpeed = 0f;
     public float playerSprint = 3f;
     public float currentplayerSprint = 0f;
@@ -339,7 +339,7 @@ public class PlayerMovement : MonoBehaviour
         presentHealth = playerHealth;
        
         healthBar.GiveFullHealth(playerHealth);
-        playerSpeed = 4f;
+        playerSpeed = 3f;
         playerSprint = 3f;
       //  animator.SetBool("Die", false);
       //  animator.SetBool("Fire", true);

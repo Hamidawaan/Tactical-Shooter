@@ -66696,7 +66696,7 @@ MonoBehaviour:
   healthBar: {fileID: 4029801184954085402}
   playerSpeed: 4
   currentPlayerSpeed: 0
-  playerSprint: 2
+  playerSprint: 7
   currentplayerSprint: 0
   playerCharacter: {fileID: 2013028638531000071}
   spawn: {fileID: 4739968681271060372}
@@ -66712,8 +66712,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   mobileInputs: 1
-  joyStick: {fileID: 738080471255846932}
-  sprintJoyStick: {fileID: 6152537008819401086}
+  joyStick: {fileID: 6152537008819401086}
+  sprintJoyStick: {fileID: 738080471255846932}
 --- !u!1 &3645928076053073412
 GameObject:
   m_ObjectHideFlags: 0
@@ -77841,7 +77841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &5644712327906728960
 GameObject:
   m_ObjectHideFlags: 0
@@ -106672,9 +106672,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18221317d14efa4ea81160771597a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimCam: {fileID: 0}
+  AimCam: {fileID: 1070888877}
   AimCanvas: {fileID: 190165606662841797}
-  ThirdPersonCam: {fileID: 0}
+  ThirdPersonCam: {fileID: 7947697030774761659}
   ThirdPersonCanvas: {fileID: 6482422803569387755}
   animator: {fileID: 6872260644506054599}
   player: {fileID: 3638847839432431203}

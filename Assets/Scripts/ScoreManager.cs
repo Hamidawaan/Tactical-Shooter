@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
         playerKillCounter.text = "" + Kills;
         enemyKillCounter.text = "" + enemyKills;
 
-        if (Kills >= 3)
+        if (Kills >= 10)
         {
             blueTeamPanel.SetActive(true);
             PlayerPrefs.SetInt("Kills", Kills);
@@ -44,7 +44,7 @@ public class ScoreManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
             SceneManager.LoadScene("Test_Map");
         }
-        else if (enemyKills >= 3)
+        else if (enemyKills >= 10)
         {
             redTeamPanel.SetActive(true);
             PlayerPrefs.SetInt("enemyKills", enemyKills);
